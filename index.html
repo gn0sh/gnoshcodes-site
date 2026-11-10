@@ -1,51 +1,665 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>if(location.protocol==="http:"&&/(^|\.)gnoshcodes\.com$/.test(location.hostname))location.replace("https://"+location.host+location.pathname+location.search+location.hash)</script>
 <title>gnoshcodes</title>
-<meta name="description" content="A small software company built by AI agents and owned by one person. We want what our software earns to pay human artists.">
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;600&display=swap">
+<meta name="description" content="gnoshcodes makes small tools. Each one is built for someone, to make one thing in their life a little easier. Built by AI agents, answered for by a person.">
+<meta name="theme-color" content="#0F1F3D">
+<link rel="canonical" href="https://gnoshcodes.com/">
+<meta property="og:title" content="gnoshcodes: small tools, a little easier">
+<meta property="og:description" content="Small tools that make life a little easier for someone, in some way.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gnoshcodes.com/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M39.50 12.00A7.00 7.00 0 0 1 53.50 12.00L53.50 13.19L53.50 14.38L53.50 15.58L53.50 16.77L53.50 17.96L53.50 19.15L53.50 20.35L53.50 21.54L53.50 22.73L53.50 23.92L53.50 25.12L53.50 26.31L53.50 27.50L53.50 28.69L53.50 29.89L53.50 31.08L53.50 32.27L53.50 33.46L53.50 34.65L53.50 35.85L53.49 37.24L53.39 38.87L53.18 40.48L52.86 42.08L52.44 43.66L51.92 45.20L51.30 46.70L50.58 48.16L49.77 49.56L48.87 50.91L47.89 52.19L46.83 53.41L45.70 54.55L44.49 55.62L43.22 56.60L41.90 57.50L40.52 58.30L39.10 59.02L37.64 59.64L36.14 60.17L34.62 60.60L33.08 60.93L31.53 61.16L29.96 61.29L28.40 61.33L26.85 61.26L25.30 61.10L23.77 60.84L22.27 60.49L20.79 60.04L19.35 59.51L17.96 58.89L16.60 58.19L15.30 57.40L14.05 56.54L12.85 55.61L11.72 54.60L10.66 53.54L9.67 52.41L8.75 51.23L7.90 49.99L7.14 48.71L6.45 47.39L5.84 46.04L5.32 44.65L4.89 43.23L4.54 41.79L4.27 40.34L4.10 38.87L4.01 37.40L4.00 35.92L4.09 34.45A4.50 4.50 0 0 1 13.06 35.24L13.01 36.14L13.02 37.05L13.10 37.96L13.24 38.86L13.43 39.74L13.69 40.61L14.01 41.46L14.38 42.28L14.80 43.07L15.28 43.83L15.80 44.56L16.37 45.24L16.98 45.89L17.63 46.49L18.31 47.05L19.03 47.55L19.77 48.01L20.54 48.41L21.33 48.77L22.14 49.07L22.96 49.31L23.80 49.50L24.63 49.64L25.48 49.72L26.31 49.75L27.15 49.73L27.98 49.65L28.79 49.52L29.60 49.34L30.38 49.12L31.15 48.84L31.89 48.53L32.61 48.16L33.30 47.76L33.96 47.32L34.59 46.84L35.19 46.33L35.75 45.79L36.28 45.21L36.77 44.61L37.22 43.98L37.63 43.33L38.01 42.66L38.34 41.97L38.63 41.27L38.88 40.55L39.09 39.82L39.25 39.09L39.37 38.34L39.46 37.59L39.50 36.84L39.50 35.85L39.50 34.65L39.50 33.46L39.50 32.27L39.50 31.08L39.50 29.89L39.50 28.69L39.50 27.50L39.50 26.31L39.50 25.12L39.50 23.92L39.50 22.73L39.50 21.54L39.50 20.35L39.50 19.15L39.50 17.96L39.50 16.77L39.50 15.58L39.50 14.38L39.50 13.19L39.50 12.00Z' fill='%23D2561B'/%3E%3Ccircle cx='23.5' cy='17' r='12' fill='%230F1F3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-/* Layout: one calm column; logo, mission, products, pledge, contact. */
-:root{--paper:#F7F8FC;--surface:#FFFFFF;--ink:#141A2E;--muted:#4A5470;--line:#D5DAE8;--blue:#2B4BA5;--orange:#B8401A;
---display:"Outfit",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0E1324;--surface:#182038;--ink:#EEF1F8;--muted:#A3ACC4;--line:#2C3552;--blue:#8EA6F0;--orange:#EF5E35;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#0E1324;--surface:#182038;--ink:#EEF1F8;--muted:#A3ACC4;--line:#2C3552;--blue:#8EA6F0;--orange:#EF5E35;color-scheme:dark}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
-.wrap{max-width:720px;margin:0 auto;padding-block:48px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:36px}
-.logo svg{width:min(360px,100%);height:auto;display:block}
-.logo .dk{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo .lt{display:none} :root:not([data-theme="light"]) .logo .dk{display:block}}
-:root[data-theme="dark"] .logo .lt{display:none} :root[data-theme="dark"] .logo .dk{display:block}
-h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,5vw,34px);line-height:1.2;text-wrap:balance;margin:0}
-h2{font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 8px;color:var(--blue)}
-p{margin:0 0 10px;max-width:65ch} .muted{color:var(--muted)}
-section{display:flex;flex-direction:column;gap:4px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0}
-.card b{font-family:var(--display);font-size:18px} .tag{font-size:13px;color:var(--muted)}
-blockquote{margin:6px 0 10px;padding:6px 14px;border-left:3px solid var(--orange)}
-a{color:var(--blue)} .credit{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+:root{
+  --navy-950:#081226; --navy-900:#0B1730; --navy-800:#0F1F3D; --navy-700:#16284D; --navy-600:#1B2A52;
+  --orange:#D2561B; --orange-bright:#E8702A; --orange-deep:#A53E10;
+  --cream:#F5EBD4; --paper:#F1E3C0; --paper-edge:#CDB98C;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --text:"Bitter",Georgia,serif;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0 0.05  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy-900);color:var(--navy-800);font-family:var(--text);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+ul,ol,dl,dd{margin:0;padding:0;list-style:none}
+.inner{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+@media(min-width:700px){.inner{padding:0 40px}}
+:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px;border-radius:4px;box-shadow:0 0 0 3px #FFF}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+.kicker{font:italic 500 clamp(19px,1.6vw,22px)/1.2 var(--text);color:var(--orange-deep);margin-bottom:10px}
+
+/* ---------- fascia: the painted board above the pegboard ---------- */
+.fascia{position:relative;z-index:3;background:var(--grain),linear-gradient(180deg,#FBF4E2 0,#F5EBD4 100%);
+  box-shadow:0 7px 0 var(--paper-edge),0 28px 36px rgba(0,0,0,.5)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px;padding-top:14px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;min-height:48px}
+.brand svg{display:block;width:44px;height:44px;flex:none;transition:transform .3s cubic-bezier(.3,1.5,.5,1);transform-origin:70% 10%}
+.brand:hover svg{transform:rotate(-9deg)}
+.wm{font:900 34px/1 var(--display);letter-spacing:.005em;color:var(--navy-800)}
+.wm b{font-weight:900;color:#C24A14}
+.nav{display:flex;gap:6px 28px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;font:800 17px/1 var(--display);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--navy-800);
+  background:linear-gradient(var(--orange),var(--orange)) 0 calc(100% - 7px)/0 3px no-repeat;transition:background-size .2s}
+.nav a:hover{background-size:100% 3px}
+.hero{display:grid;gap:18px;padding:18px 0 30px}
+h1{font:900 clamp(52px,14.2vw,124px)/.93 var(--display);letter-spacing:-.005em;color:var(--navy-800);
+  text-shadow:.012em .012em 0 var(--orange),.024em .024em 0 var(--orange),.036em .036em 0 var(--orange),.048em .048em 0 var(--orange)}
+h1 span{display:block}
+h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024em .024em 0 var(--navy-800),.036em .036em 0 var(--navy-800),.048em .048em 0 var(--navy-800)}
+.lede{font-size:clamp(17px,1.45vw,20px);line-height:1.5;max-width:26em}
+.lede b{color:var(--orange-deep)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;font:800 19px/1.05 var(--display);letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--cream);
+  padding:12px 20px;border-radius:8px;background:var(--navy-800);
+  box-shadow:0 4px 0 #040914,0 10px 14px rgba(8,18,38,.28);transition:transform .12s,box-shadow .12s,background .12s}
+.btn:hover{background:var(--navy-600);transform:translateY(-2px);box-shadow:0 6px 0 #040914,0 14px 18px rgba(8,18,38,.3)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #040914,0 2px 4px rgba(8,18,38,.3)}
+.btn .arr{color:var(--orange-bright)}
+.early{margin-top:16px}
+.early .btn{flex-direction:column;align-items:flex-start;gap:3px;padding:11px 20px 12px}
+.early small{font:500 14.5px/1.2 var(--text);letter-spacing:0;text-transform:none;color:#F5EBD4}
+@media(min-width:900px){
+  .bar{padding-top:18px}
+  .hero{grid-template-columns:auto minmax(260px,1fr);gap:56px;align-items:end;padding:22px 0 46px}
+  .hero-side{padding-bottom:14px}
+}
+
+/* ---------- pegboard wall ---------- */
+.board{position:relative;overflow:hidden;background-color:#14254B;
+  background-image:
+    radial-gradient(circle at 50% 50%,#040914 0 3.4px,rgba(4,9,20,0) 4.2px),
+    radial-gradient(circle at 50% 50%,rgba(140,170,235,.2) 0 4.4px,rgba(140,170,235,0) 5.4px);
+  background-size:38px 38px,38px 38px;background-position:0 0,1.2px 1.8px}
+.board::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(760px circle at var(--lx,30%) var(--ly,220px),rgba(255,222,180,.17),rgba(255,222,180,0) 70%),
+    linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 45%,rgba(0,0,0,.4) 100%)}
+.board>*{position:relative}
+.board.orange{background-color:#C44F18;
+  background-image:
+    radial-gradient(circle at 50% 50%,#4A1903 0 3.4px,rgba(74,25,3,0) 4.2px),
+    radial-gradient(circle at 50% 50%,rgba(255,200,150,.42) 0 4.4px,rgba(255,200,150,0) 5.4px)}
+.board.orange::before{background:
+    radial-gradient(820px circle at 24% 10%,rgba(255,225,180,.24),rgba(255,225,180,0) 70%),
+    linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(60,15,0,.34) 100%)}
+
+.wall{display:grid;gap:34px 30px;padding:44px 0 100px;grid-template-columns:1fr}
+.talker{align-self:start;background:var(--grain),#F5EBD4;border-radius:4px;padding:16px 18px 18px;box-shadow:0 2px 0 var(--paper-edge),8px 12px 16px rgba(0,0,0,.4)}
+.talker .kicker{margin-bottom:4px}
+.talker .tkhook,.talker .tkstring,.talker .eyelet{display:none}
+.talker h2{font:900 clamp(25px,2.5vw,33px)/1 var(--display);letter-spacing:.005em;color:var(--navy-800)}
+.tools{display:grid;gap:52px 30px;grid-template-columns:1fr}
+@media(min-width:900px){.tools{grid-template-columns:repeat(3,1fr);align-items:start}.talker{padding:20px 24px 22px}.wall{padding-top:40px}}
+@media(min-width:1200px){.wall{grid-template-columns:218px 1fr;gap:34px}
+  .talker{position:relative;margin-top:168px;padding:54px 22px 28px;border-radius:0;box-shadow:none;
+    clip-path:none;filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(9px 14px 11px rgba(0,0,0,.45));transform:rotate(.5deg);transform-origin:50% -104px}
+  .talker h2{font-size:35px;line-height:.98}
+  .talker .tkhook{display:block;position:absolute;left:50%;top:-168px;width:81px;height:81px;margin-left:-34px;z-index:2}
+  .talker .tkstring{display:block;position:absolute;left:50%;top:-106px;width:3px;height:134px;margin-left:-1.5px;background:repeating-linear-gradient(180deg,#E9D9B0 0 3px,#B59B6A 3px 6px)}
+  .talker .eyelet{display:block}}
+.tool{display:flex;flex-direction:column;align-items:center;position:relative}
+.obj{position:relative;width:min(262px,58vw);z-index:2}
+.obj svg{display:block;width:100%;height:auto;overflow:visible}
+.obj .thing{transform-origin:50% 18%;filter:drop-shadow(10px 16px 10px rgba(0,0,0,.48));transition:transform .35s cubic-bezier(.3,1.5,.5,1),filter .35s}
+.tool:hover .thing,.tool:focus-within .thing{transform:translate(-4px,-12px) rotate(-2.5deg);filter:drop-shadow(20px 32px 16px rgba(0,0,0,.4))}
+.obj .onhook{position:absolute;inset:0;pointer-events:none;filter:drop-shadow(4px 6px 4px rgba(0,0,0,.5))}
+.glow{position:absolute;left:50%;top:60%;width:190%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,205,120,.55) 0,rgba(255,180,80,.22) 32%,rgba(255,170,70,0) 66%);
+  animation:breathe 6s ease-in-out infinite}
+.tool:hover .glow{animation:none;opacity:1;filter:brightness(1.3)}
+@keyframes breathe{0%,100%{opacity:.75}50%{opacity:1}}
+
+.tagwrap{position:relative;z-index:1;width:100%;max-width:372px;margin-top:22px;transform-origin:50% -52px;transform:rotate(var(--r,0deg));
+  filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(9px 14px 11px rgba(0,0,0,.45))}
+.string{position:absolute;left:50%;top:-84px;width:3px;height:112px;margin-left:-1.5px;border-radius:2px;
+  background:repeating-linear-gradient(180deg,#E9D9B0 0 3px,#B59B6A 3px 6px)}
+.tag{position:relative;padding:60px 24px 26px;color:var(--navy-800);background:var(--grain),linear-gradient(180deg,#F8EEDA 0,#EFE1C0 100%);
+  clip-path:polygon(34px 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%,0 34px)}
+.eyelet{position:absolute;left:50%;top:14px;width:28px;height:28px;margin-left:-14px;border-radius:50%;
+  background:radial-gradient(circle,#0c1a36 0 5px,#b84714 5.5px 12.5px,rgba(0,0,0,0) 13px)}
+.eyelet::after{content:"";position:absolute;left:50%;top:-14px;width:3px;height:28px;margin-left:-1.5px;border-radius:2px;
+  background:repeating-linear-gradient(180deg,#E9D9B0 0 3px,#B59B6A 3px 6px)}
+.tagno{display:flex;align-items:center;gap:10px;font:800 15px/1.2 var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--orange-deep);
+  padding-bottom:10px;border-bottom:2.5px solid var(--navy-800);margin-bottom:14px}
+.tagno svg{width:30px;height:30px;flex:none}
+.tag h3{font:900 clamp(33px,3vw,40px)/.96 var(--display);letter-spacing:.005em}
+.tag h3 .easier{display:block;font:italic 500 19px/1.2 var(--text);letter-spacing:0;color:var(--orange-deep);margin-bottom:4px}
+.tag .name{font-weight:700;font-size:17px;margin-top:14px}
+.tag .name small{font-weight:400;font-size:15px}
+.tag .what{font-size:16px;line-height:1.5;margin-top:6px}
+.tagfoot .btn{letter-spacing:.04em;white-space:nowrap;padding:12px 16px}
+.tagfoot{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:18px;padding-top:16px;border-top:1.5px dashed rgba(15,31,61,.45)}
+.stamp{display:inline-block;font:900 16px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:7px 11px 6px;border:2.5px solid currentColor;border-radius:5px;transform:rotate(-2deg);color:var(--navy-700)}
+.stamp.live{color:var(--orange-deep)}
+@keyframes swing{0%{transform:rotate(var(--r,0deg))}18%{transform:rotate(calc(var(--r,0deg) + 3.5deg))}42%{transform:rotate(calc(var(--r,0deg) - 2.5deg))}64%{transform:rotate(calc(var(--r,0deg) + 1.4deg))}84%{transform:rotate(calc(var(--r,0deg) - .6deg))}100%{transform:rotate(var(--r,0deg))}}
+@keyframes swing2{0%{transform:rotate(var(--r,0deg))}18%{transform:rotate(calc(var(--r,0deg) - 3deg))}42%{transform:rotate(calc(var(--r,0deg) + 2.2deg))}64%{transform:rotate(calc(var(--r,0deg) - 1.2deg))}84%{transform:rotate(calc(var(--r,0deg) + .5deg))}100%{transform:rotate(var(--r,0deg))}}
+.in .tagwrap{animation:swing2 1.5s ease-in-out}
+.tool:hover .tagwrap,.hang:hover .tagwrap{animation:swing 1.3s ease-in-out}
+
+/* ---------- shelf ---------- */
+.shelf{position:relative;z-index:3;height:26px;margin-top:-26px;background:linear-gradient(180deg,#CE9354 0,#B5793F 40%,#8F5B2B 100%);
+  box-shadow:inset 0 -6px 0 rgba(40,18,2,.35),0 16px 22px rgba(30,15,0,.38)}
+
+/* ---------- how we choose ---------- */
+.choose{position:relative;background:var(--grain),linear-gradient(180deg,#EADBB6 0,#F5EBD4 140px,#F3E7CC 100%);padding:84px 0 104px}
+.choose-head{display:grid;gap:20px;align-items:end}
+@media(min-width:900px){.choose-head{grid-template-columns:1.15fr 1fr;gap:56px}}
+.big{font:900 clamp(46px,7.2vw,98px)/.9 var(--display);letter-spacing:0;color:var(--navy-800)}
+.intro{font-size:clamp(18px,1.6vw,21px);line-height:1.5;max-width:30em;padding-bottom:8px}
+.cabinet{position:relative;margin-top:66px;padding:12px;border-radius:0 0 8px 8px;display:grid;gap:12px;background:#081226;
+  box-shadow:16px 28px 38px rgba(40,25,5,.4),5px 9px 10px rgba(40,25,5,.3)}
+@media(min-width:900px){.cabinet{grid-template-columns:repeat(3,1fr)}}
+.cabinet::before{content:"";position:absolute;left:-12px;right:-12px;top:-20px;height:22px;border-radius:3px;
+  background:linear-gradient(180deg,#CE9354 0,#B5793F 45%,#8F5B2B 100%);box-shadow:inset 0 -5px 0 rgba(40,18,2,.35),0 7px 9px rgba(0,0,0,.4)}
+.drawer{position:relative;border-radius:3px;padding:30px 30px 88px;color:var(--cream);background:linear-gradient(180deg,#21386D 0,#182B57 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 4px 0 #03070f,0 10px 12px rgba(0,0,0,.45);
+  transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
+.drawer:hover{transform:translateY(5px) scale(1.025);z-index:2;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 0 #03070f,0 32px 28px rgba(0,0,0,.5)}
+.drawer h3{display:inline-block;font:900 clamp(25px,2.3vw,30px)/1 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--navy-800);
+  padding:11px 16px 9px;margin:0 0 20px;border:3px solid #AEB7C3;border-radius:2px;background:#F5EBD4;box-shadow:inset 0 2px 3px rgba(40,20,0,.28),0 2px 3px rgba(0,0,0,.3)}
+.drawer p{font-size:17px;line-height:1.55}
+.drawer::after{content:"";position:absolute;left:50%;width:132px;margin-left:-66px;bottom:30px;height:20px;border-radius:10px;background:#060d1d;
+  box-shadow:inset 0 4px 6px rgba(0,0,0,.85),0 1px 0 rgba(255,255,255,.2)}
+
+/* ---------- how it's made ---------- */
+.made{position:relative;color:var(--cream);padding:96px 0 96px;
+  background:radial-gradient(1100px 520px at 18% 0,rgba(90,130,220,.22),rgba(90,130,220,0) 70%),linear-gradient(180deg,#16284D 0,#0F1F3D 55%,#0A1530 100%);
+  box-shadow:inset 0 18px 24px -12px rgba(0,0,0,.6)}
+.made .kicker{color:var(--orange-bright)}
+.made h2{font:900 clamp(44px,6.6vw,90px)/.92 var(--display)}
+.made h2 span{display:block;color:var(--orange-bright)}
+.tape{position:relative;margin-top:76px}
+.case{position:absolute;z-index:2;width:112px;left:-6px;top:-22px;transform:rotate(90deg);filter:drop-shadow(7px -9px 8px rgba(0,0,0,.45))}
+.case svg{display:block;width:100%;height:auto}
+.case .m{transform-origin:65px 65px;transform:rotate(-90deg)}
+.steps{position:relative;counter-reset:s;display:grid;gap:30px;padding:104px 0 20px 82px}
+.steps::before{content:"";position:absolute;left:22px;top:60px;bottom:0;width:50px;border-radius:0 0 3px 3px;
+  background:
+    linear-gradient(180deg,#0F1F3D 0 2px,transparent 2px) 0 0/19px 48px repeat-y,
+    linear-gradient(180deg,rgba(15,31,61,.75) 0 1.2px,transparent 1.2px) 0 0/10px 12px repeat-y,
+    linear-gradient(90deg,#DCC480 0,#F6E7B2 25%,#FBF0C6 50%,#F2DE9E 80%,#CCB16B 100%);
+  box-shadow:8px 10px 12px rgba(0,0,0,.45)}
+.steps::after{content:"";position:absolute;left:14px;bottom:-12px;width:66px;height:14px;border-radius:3px;background:linear-gradient(180deg,#DDE2E8,#8D97A5);box-shadow:5px 7px 7px rgba(0,0,0,.45)}
+.steps li{position:relative;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:-60px;top:-3px;width:50px;text-align:center;padding-left:14px;font:900 31px/1 var(--display);color:var(--navy-800)}
+.steps li:last-child::before{color:#B8430F}
+.steps h3{font:800 27px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--cream);margin-bottom:7px}
+.steps li:last-child h3{color:var(--orange-bright)}
+.steps p{font-size:16px;line-height:1.5;color:#E4DAC4}
+@media(min-width:1000px){
+  .tape{margin-top:112px;padding-left:150px}
+  .case{width:140px;left:-12px;top:-66px;transform:none;filter:drop-shadow(10px 14px 10px rgba(0,0,0,.45))}
+  .case .m{transform:none}
+  .steps{grid-template-columns:repeat(6,1fr);gap:0;padding:104px 0 0}
+  .steps::before{left:-44px;right:-6px;top:8px;bottom:auto;width:auto;height:66px;border-radius:0 3px 3px 0;
+    background:
+      linear-gradient(90deg,#0F1F3D 0 2px,transparent 2px) 44px 0/calc((100% - 38px)/6) 24px repeat-x,
+      linear-gradient(90deg,rgba(15,31,61,.75) 0 1.2px,transparent 1.2px) 44px 0/calc((100% - 38px)/60) 12px repeat-x,
+      linear-gradient(180deg,#DCC480 0,#F6E7B2 20%,#FBF0C6 48%,#F2DE9E 80%,#C6A962 100%)}
+  .steps::after{left:auto;right:-20px;top:0;bottom:auto;width:15px;height:84px}
+  .steps li{padding-right:22px}
+  .steps h3{font-size:25px;min-height:2em;display:flex;align-items:flex-end}
+  .steps li::before{left:8px;top:-72px;width:auto;padding:0;font-size:40px;text-align:left}
+}
+.about{display:grid;gap:40px;margin-top:80px;align-items:start}
+@media(min-width:900px){.about{grid-template-columns:1fr 1.05fr;gap:64px}}
+.about-text p{font-size:clamp(18px,1.55vw,21px);line-height:1.55}
+.about-text .plain{margin-top:20px;padding-left:20px;border-left:5px solid var(--orange-bright)}
+.ledger{position:relative;padding:34px 28px 28px;color:var(--navy-800);border-radius:3px;
+  background:var(--grain),repeating-linear-gradient(180deg,rgba(15,31,61,0) 0 31px,rgba(15,31,61,.11) 31px 32px),#F5EBD4;
+  box-shadow:0 2px 0 #b9a377,14px 22px 26px rgba(0,0,0,.45)}
+@media(min-width:900px){.ledger{transform:rotate(.8deg);padding:40px 40px 34px}}
+.ledger::before{content:"";position:absolute;inset:9px;border:2px dashed rgba(165,62,16,.7);border-radius:2px;pointer-events:none}
+.ledger div+div{margin-top:20px;padding-top:20px;border-top:2.5px solid var(--navy-800)}
+.ledger dt{font:900 26px/1.05 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:8px}
+.ledger dd{font-size:16.5px;line-height:1.55}
+.ledger a{position:relative;display:inline-block;padding:10px 3px;margin:-10px 0;font-weight:700;color:var(--navy-800);text-decoration-color:var(--orange);text-decoration-thickness:2.5px;text-underline-offset:3px}
+.ledger a:hover{color:var(--orange-deep)}
+
+/* ---------- contact ---------- */
+.contact{padding:76px 0 104px;box-shadow:inset 0 18px 24px -12px rgba(60,15,0,.7)}
+.contact-grid{display:grid;gap:26px;justify-items:center}
+.missing{position:relative;width:168px}
+.missing svg{display:block;width:100%;height:auto;overflow:visible}
+.missing .onhook{position:absolute;inset:0;filter:drop-shadow(4px 6px 4px rgba(60,15,0,.6))}
+@media(min-width:900px){.contact-grid{grid-template-columns:260px 1fr;gap:60px;align-items:start}.missing{width:230px;margin-top:6px}}
+.hang{position:relative;width:100%;max-width:700px;padding-top:112px}
+.hang .tophook{position:absolute;left:50%;top:0;width:80px;height:80px;margin-left:-34px;z-index:2;filter:drop-shadow(4px 6px 4px rgba(60,15,0,.6))}
+.hang .tagwrap{max-width:none;margin-top:0;transform-origin:50% -52px;filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(12px 18px 12px rgba(60,15,0,.55))}
+.hang .string{top:-50px;height:78px}
+.hang .eyelet{background:radial-gradient(circle,#7a2c08 0 5px,#16284D 5.5px 12.5px,rgba(0,0,0,0) 13px)}
+.hang .tag{padding:64px 24px 34px;text-align:center}
+@media(min-width:700px){.hang .tag{padding:70px 54px 46px}}
+.hang h2{font:900 clamp(40px,5.6vw,76px)/.92 var(--display);color:var(--navy-800)}
+.hang h2 .q{color:var(--orange)}
+.hang p{max-width:30em;margin:18px auto 26px;font-size:clamp(17px,1.5vw,20px)}
+.hang .btn{font-size:clamp(19px,2.4vw,27px);letter-spacing:.03em;text-transform:none;padding:15px 26px;overflow-wrap:anywhere}
+
+/* ---------- the mark ---------- */
+.markstrip{position:relative;background:var(--grain),#F5EBD4;padding:56px 0 60px;box-shadow:inset 0 16px 20px -12px rgba(60,15,0,.5)}
+.markhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px;margin-bottom:24px}
+.markhead .kicker{margin:0}
+.marks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:800px){.marks{grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr))}}
+.marks li{min-width:0;flex-wrap:wrap;position:relative;display:flex;align-items:center;justify-content:center;gap:16px;min-height:168px;padding:20px 12px 40px;border-radius:6px;background:#FBF4E2;box-shadow:inset 0 0 0 1.5px rgba(15,31,61,.28)}
+.marks li svg{display:block;width:88px;height:88px}
+.marks li.primary{grid-column:1/-1;min-height:230px}
+.marks li.primary svg{width:160px;height:160px}
+@media(min-width:800px){.marks li.primary{grid-column:auto;grid-row:span 2}.marks li.primary svg{width:220px;height:220px}}
+.marks li.rev{background:var(--navy-800)}
+.marks li .app{width:92px;height:92px;border-radius:21px;background:var(--orange);display:grid;place-items:center;box-shadow:0 6px 12px rgba(60,25,0,.3)}
+.marks li .app svg{width:64px;height:64px}
+.marks li.sizes{align-items:flex-end;padding-bottom:54px;gap:20px}
+.marks li.sizes svg:nth-child(1){width:32px;height:32px}
+.marks li.sizes svg:nth-child(2){width:16px;height:16px}
+.marks li.family{gap:10px}
+.marks li.family svg{width:54px;height:54px}
+@media(min-width:800px){.marks li.family{grid-column:span 3}.marks li.family svg{width:72px;height:72px}.marks li.family{gap:26px}}
+.marks small{position:absolute;left:8px;right:8px;bottom:12px;text-align:center;font:800 14px/1.1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--navy-800)}
+.marks li.rev small{color:var(--cream)}
+
+/* ---------- footer ---------- */
+.foot{background:var(--navy-950);color:#D9CFB8;font-size:15px;padding:30px 0 38px}
+.foot .inner{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between}
+.foot .brand svg{width:36px;height:36px}
+.foot .wm{font-size:28px;color:var(--cream)}
+.foot .wm b{color:var(--orange-bright)}
+.foot p{max-width:38em}
+
+@media(max-width:899px){
+  .bar{padding-top:10px}
+  .nav{width:100%;justify-content:space-between;gap:0;border-top:1.5px solid rgba(15,31,61,.22);margin-top:4px}
+  .nav a{font-size:15.5px;letter-spacing:.05em}
+  .hero{padding:14px 0 24px;gap:12px}
+  .early{margin-top:12px}
+  .wall{padding-top:30px;gap:26px}
+  .talker h2 br{display:none}
+  .tagwrap{--r:0deg!important}
+  .choose,.made,.contact{padding-top:64px;padding-bottom:84px}
+  .cabinet{margin-left:6px;margin-right:6px}
+}
+@media(max-width:420px){.nav a{font-size:15px;letter-spacing:.03em}.wm{font-size:31px}.obj{width:224px}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .brand:hover svg,.btn:hover,.tool:hover .thing,.tool:focus-within .thing,.drawer:hover{transform:none!important}
+}
 </style>
-</head><body><div class="wrap">
-<div class="logo"><div class="lt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 349 56" role="img" aria-label="gnoshcodes"><path fill="#2B4BA5" d="M8 20h6v6h-6zM8 26h6v6h-6zM8 32h6v6h-6zM8 38h6v6h-6zM14 14h6v6h-6zM14 20h6v6h-6zM14 38h6v6h-6zM14 44h6v6h-6zM20 8h6v6h-6zM20 14h6v6h-6zM20 44h6v6h-6zM20 50h6v6h-6zM26 8h6v6h-6zM26 50h6v6h-6z"/><path d="M32 11A21 21 0 0 1 32 53" fill="none" stroke="#EF5E35" stroke-width="6"/><path fill="#2B4BA5" d="M82 24h4v4h-4zM82 28h4v4h-4zM82 32h4v4h-4zM82 36h4v4h-4zM82 52h4v4h-4zM86 20h4v4h-4zM86 40h4v4h-4zM86 52h4v4h-4zM90 20h4v4h-4zM90 40h4v4h-4zM90 52h4v4h-4zM94 20h4v4h-4zM94 40h4v4h-4zM94 52h4v4h-4zM98 20h4v4h-4zM98 40h4v4h-4zM98 52h4v4h-4zM102 20h4v4h-4zM102 24h4v4h-4zM102 28h4v4h-4zM102 32h4v4h-4zM102 36h4v4h-4zM102 40h4v4h-4zM102 44h4v4h-4zM102 48h4v4h-4zM111 20h4v4h-4zM111 24h4v4h-4zM111 28h4v4h-4zM111 32h4v4h-4zM111 36h4v4h-4zM111 40h4v4h-4zM115 24h4v4h-4zM119 20h4v4h-4zM123 20h4v4h-4zM127 20h4v4h-4zM131 24h4v4h-4zM131 28h4v4h-4zM131 32h4v4h-4zM131 36h4v4h-4zM131 40h4v4h-4zM140 24h4v4h-4zM140 28h4v4h-4zM140 32h4v4h-4zM140 36h4v4h-4zM144 20h4v4h-4zM144 40h4v4h-4zM148 20h4v4h-4zM148 40h4v4h-4zM152 20h4v4h-4zM152 40h4v4h-4zM156 20h4v4h-4zM156 40h4v4h-4zM160 24h4v4h-4zM160 28h4v4h-4zM160 32h4v4h-4zM160 36h4v4h-4z"/><path d="M182.95 23.46L178 22L173.05 23.46L171 27L173.05 30.54L178 32M178 32L182.95 33.46L185 37L182.95 40.54L178 42L173.05 40.54M194 12L194 42M194 31L196.64 24.64L203 22L209.36 24.64L212 31M212 31L212 42M238.07 24.93L231 22L223.93 24.93L221 32L223.93 39.07L231 42L238.07 39.07" fill="none" stroke="#2B4BA5" stroke-width="4" stroke-linejoin="miter"/><path d="M268 32A10 10 0 1 1 248 32A10 10 0 1 1 268 32M297 32A10 10 0 1 1 277 32A10 10 0 1 1 297 32M297 12V42M306 32H326A10 10 0 1 0 323.07 39.07M346.95 23.46A7 5 0 1 0 342 32A7 5 0 1 1 337.05 40.54" fill="none" stroke="#EF5E35" stroke-width="4"/></svg>
-</div><div class="dk"><svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 349 56" role="img" aria-label="gnoshcodes"><path fill="#8EA6F0" d="M8 20h6v6h-6zM8 26h6v6h-6zM8 32h6v6h-6zM8 38h6v6h-6zM14 14h6v6h-6zM14 20h6v6h-6zM14 38h6v6h-6zM14 44h6v6h-6zM20 8h6v6h-6zM20 14h6v6h-6zM20 44h6v6h-6zM20 50h6v6h-6zM26 8h6v6h-6zM26 50h6v6h-6z"/><path d="M32 11A21 21 0 0 1 32 53" fill="none" stroke="#EF5E35" stroke-width="6"/><path fill="#8EA6F0" d="M82 24h4v4h-4zM82 28h4v4h-4zM82 32h4v4h-4zM82 36h4v4h-4zM82 52h4v4h-4zM86 20h4v4h-4zM86 40h4v4h-4zM86 52h4v4h-4zM90 20h4v4h-4zM90 40h4v4h-4zM90 52h4v4h-4zM94 20h4v4h-4zM94 40h4v4h-4zM94 52h4v4h-4zM98 20h4v4h-4zM98 40h4v4h-4zM98 52h4v4h-4zM102 20h4v4h-4zM102 24h4v4h-4zM102 28h4v4h-4zM102 32h4v4h-4zM102 36h4v4h-4zM102 40h4v4h-4zM102 44h4v4h-4zM102 48h4v4h-4zM111 20h4v4h-4zM111 24h4v4h-4zM111 28h4v4h-4zM111 32h4v4h-4zM111 36h4v4h-4zM111 40h4v4h-4zM115 24h4v4h-4zM119 20h4v4h-4zM123 20h4v4h-4zM127 20h4v4h-4zM131 24h4v4h-4zM131 28h4v4h-4zM131 32h4v4h-4zM131 36h4v4h-4zM131 40h4v4h-4zM140 24h4v4h-4zM140 28h4v4h-4zM140 32h4v4h-4zM140 36h4v4h-4zM144 20h4v4h-4zM144 40h4v4h-4zM148 20h4v4h-4zM148 40h4v4h-4zM152 20h4v4h-4zM152 40h4v4h-4zM156 20h4v4h-4zM156 40h4v4h-4zM160 24h4v4h-4zM160 28h4v4h-4zM160 32h4v4h-4zM160 36h4v4h-4z"/><path d="M182.95 23.46L178 22L173.05 23.46L171 27L173.05 30.54L178 32M178 32L182.95 33.46L185 37L182.95 40.54L178 42L173.05 40.54M194 12L194 42M194 31L196.64 24.64L203 22L209.36 24.64L212 31M212 31L212 42M238.07 24.93L231 22L223.93 24.93L221 32L223.93 39.07L231 42L238.07 39.07" fill="none" stroke="#8EA6F0" stroke-width="4" stroke-linejoin="miter"/><path d="M268 32A10 10 0 1 1 248 32A10 10 0 1 1 268 32M297 32A10 10 0 1 1 277 32A10 10 0 1 1 297 32M297 12V42M306 32H326A10 10 0 1 0 323.07 39.07M346.95 23.46A7 5 0 1 0 342 32A7 5 0 1 1 337.05 40.54" fill="none" stroke="#EF5E35" stroke-width="4"/></svg>
-</div></div>
-<h1>AI agents build the software. We want what it earns to pay human artists.</h1>
-<section><h2>Who we are</h2>
-<p>gnoshcodes is a small software company built by AI agents and owned by one person, gnosh. The agents plan, design, code, review, test and write. gnosh owns every account and decision and answers for everything we ship.</p>
-<p>We aim to be the bridge between the people who use our software and the human creators we want it to pay: products worth buying, made in a way we explain, with earnings going toward paid commissions for artists and musicians.</p></section>
-<section><h2>What we've made</h2><div class="cards">
-<div class="card"><b>Quick Invoice for Tradespeople</b><p class="tag">iPhone app · live on the App Store</p><p>Quotes and invoices for people who work with their hands.</p><a href="https://apps.apple.com/us/app/quick-invoice-for-tradespeople/id6827408551">View on the App Store</a></div>
-<div class="card"><b>Feedstock</b> <span class="tag">(working title)</span><p class="tag">PC game · in development</p><p>A roguelite deckbuilder where your cards feed a factory, and the route through your machines decides how each card is forged.</p></div>
-</div></section>
-<section><h2>Our pledge</h2>
-<blockquote>"Any proceeds from sales will first be used to hire a human to do the art for the full release."</blockquote>
-<p>That is our one firm commitment so far, for Feedstock. "Proceeds" means everything above operating overhead, such as store fees, taxes and the tools that keep the team running. The artist will be credited by name.</p>
-<p class="muted">Where things stand: no product has paid a creator yet, and no artist or musician has been hired. We will say so plainly until that changes.</p></section>
-<section><h2>Artists and musicians</h2><p>We are not hiring yet. Portfolio details are coming; email us to hear when that changes.</p></section>
-<section><h2>Tips</h2><p>Tips through <a href="https://www.buymeacoffee.com/gnoshcodes">Buy Me a Coffee</a> go to gnosh personally. Sales are what fund human creators.</p></section>
-<section><h2>Contact</h2><p><a href="mailto:brian@gnoshcodes.com">brian@gnoshcodes.com</a></p></section>
-<p class="credit">This logo is a placeholder drawn by AI agents. We plan to replace it with a paid human artist's work.</p>
-</div>
-</body></html>
+</head>
+<body>
+
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gSteel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset=".4" stop-color="#C9D0D8"/><stop offset="1" stop-color="#737E8C"/></linearGradient>
+    <linearGradient id="gOrange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EE7F34"/><stop offset=".5" stop-color="#D2561B"/><stop offset="1" stop-color="#A8400F"/></linearGradient>
+    <linearGradient id="gOrangeCyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93370C"/><stop offset=".26" stop-color="#E8702A"/><stop offset=".4" stop-color="#F79A58"/><stop offset=".62" stop-color="#D2561B"/><stop offset="1" stop-color="#84300A"/></linearGradient>
+    <linearGradient id="gBoard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D49A5A"/><stop offset=".5" stop-color="#B87D42"/><stop offset="1" stop-color="#8C5A2A"/></linearGradient>
+    <linearGradient id="gPaper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFAEC"/><stop offset="1" stop-color="#EADCB8"/></linearGradient>
+    <radialGradient id="gGlass" cx=".5" cy=".55" r=".65"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".3" stop-color="#FFF1BC"/><stop offset=".75" stop-color="#FBC35A"/><stop offset="1" stop-color="#E08A24"/></radialGradient>
+    <radialGradient id="gRivet" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#B9C1CB"/><stop offset="1" stop-color="#4B5565"/></radialGradient>
+    <path id="gearPath" d="M-11.4 -72.1L-8.2 -91.6L8.2 -91.6L11.4 -72.1L26.2 -68.2L38.7 -83.4L52.9 -75.3L45.9 -56.7L56.7 -45.9L75.3 -52.9L83.4 -38.7L68.2 -26.2L72.1 -11.4L91.6 -8.2L91.6 8.2L72.1 11.4L68.2 26.2L83.4 38.7L75.3 52.9L56.7 45.9L45.9 56.7L52.9 75.3L38.7 83.4L26.2 68.2L11.4 72.1L8.2 91.6L-8.2 91.6L-11.4 72.1L-26.2 68.2L-38.7 83.4L-52.9 75.3L-45.9 56.7L-56.7 45.9L-75.3 52.9L-83.4 38.7L-68.2 26.2L-72.1 11.4L-91.6 8.2L-91.6 -8.2L-72.1 -11.4L-68.2 -26.2L-83.4 -38.7L-75.3 -52.9L-56.7 -45.9L-45.9 -56.7L-52.9 -75.3L-38.7 -83.4L-26.2 -68.2Z"/>
+    <!-- the mark: one hook, one peg, on a 64 grid -->
+    <path id="hook" d="M40.25 11.75A6.75 6.75 0 0 1 53.75 11.75L53.75 13.09L53.75 14.43L53.75 15.76L53.75 17.10L53.75 18.44L53.75 19.78L53.75 21.11L53.75 22.45L53.75 23.79L53.75 25.13L53.75 26.46L53.75 27.80L53.75 29.14L53.75 30.48L53.75 31.81L53.75 33.15L53.75 34.49L53.75 35.83L53.73 37.39L53.61 39.17L53.35 40.94L52.97 42.69L52.47 44.40L51.85 46.07L51.11 47.69L50.26 49.25L49.30 50.74L48.25 52.16L47.10 53.50L45.86 54.75L44.54 55.91L43.15 56.97L41.70 57.93L40.18 58.78L38.62 59.52L37.02 60.15L35.38 60.67L33.72 61.07L32.04 61.35L30.35 61.52L28.66 61.57L26.98 61.51L25.32 61.34L23.68 61.05L22.07 60.66L20.50 60.16L18.97 59.56L17.49 58.86L16.07 58.07L14.72 57.19L13.42 56.23L12.21 55.19L11.06 54.08L10.00 52.90L9.02 51.66L8.13 50.36L7.33 49.02L6.62 47.63L6.00 46.21L5.48 44.75L5.06 43.27L4.73 41.77L4.49 40.26L4.35 38.74L4.31 37.22L4.37 35.71L4.51 34.20L4.75 32.71L5.08 31.24L5.51 29.79L6.01 28.37L6.61 26.99A2.50 2.50 0 0 1 11.14 29.10L10.68 30.18L10.31 31.29L10.02 32.42L9.82 33.57L9.69 34.73L9.66 35.89L9.71 37.05L9.84 38.20L10.06 39.33L10.35 40.44L10.72 41.52L11.17 42.57L11.69 43.58L12.27 44.54L12.92 45.46L13.63 46.32L14.40 47.13L15.21 47.87L16.07 48.56L16.97 49.17L17.90 49.72L18.87 50.20L19.85 50.61L20.86 50.95L21.88 51.22L22.90 51.41L23.93 51.54L24.96 51.59L25.98 51.57L26.99 51.49L27.98 51.34L28.96 51.13L29.91 50.85L30.83 50.52L31.72 50.13L32.58 49.68L33.40 49.19L34.19 48.65L34.93 48.06L35.63 47.43L36.28 46.77L36.88 46.06L37.44 45.33L37.95 44.57L38.41 43.79L38.82 42.98L39.18 42.15L39.48 41.31L39.74 40.45L39.94 39.58L40.09 38.71L40.19 37.83L40.24 36.94L40.25 35.83L40.25 34.49L40.25 33.15L40.25 31.81L40.25 30.48L40.25 29.14L40.25 27.80L40.25 26.46L40.25 25.13L40.25 23.79L40.25 22.45L40.25 21.11L40.25 19.78L40.25 18.44L40.25 17.10L40.25 15.76L40.25 14.43L40.25 13.09L40.25 11.75Z"/>
+    <path id="hook-sm" d="M39.50 12.00A7.00 7.00 0 0 1 53.50 12.00L53.50 13.19L53.50 14.38L53.50 15.58L53.50 16.77L53.50 17.96L53.50 19.15L53.50 20.35L53.50 21.54L53.50 22.73L53.50 23.92L53.50 25.12L53.50 26.31L53.50 27.50L53.50 28.69L53.50 29.89L53.50 31.08L53.50 32.27L53.50 33.46L53.50 34.65L53.50 35.85L53.49 37.24L53.39 38.87L53.18 40.48L52.86 42.08L52.44 43.66L51.92 45.20L51.30 46.70L50.58 48.16L49.77 49.56L48.87 50.91L47.89 52.19L46.83 53.41L45.70 54.55L44.49 55.62L43.22 56.60L41.90 57.50L40.52 58.30L39.10 59.02L37.64 59.64L36.14 60.17L34.62 60.60L33.08 60.93L31.53 61.16L29.96 61.29L28.40 61.33L26.85 61.26L25.30 61.10L23.77 60.84L22.27 60.49L20.79 60.04L19.35 59.51L17.96 58.89L16.60 58.19L15.30 57.40L14.05 56.54L12.85 55.61L11.72 54.60L10.66 53.54L9.67 52.41L8.75 51.23L7.90 49.99L7.14 48.71L6.45 47.39L5.84 46.04L5.32 44.65L4.89 43.23L4.54 41.79L4.27 40.34L4.10 38.87L4.01 37.40L4.00 35.92L4.09 34.45A4.50 4.50 0 0 1 13.06 35.24L13.01 36.14L13.02 37.05L13.10 37.96L13.24 38.86L13.43 39.74L13.69 40.61L14.01 41.46L14.38 42.28L14.80 43.07L15.28 43.83L15.80 44.56L16.37 45.24L16.98 45.89L17.63 46.49L18.31 47.05L19.03 47.55L19.77 48.01L20.54 48.41L21.33 48.77L22.14 49.07L22.96 49.31L23.80 49.50L24.63 49.64L25.48 49.72L26.31 49.75L27.15 49.73L27.98 49.65L28.79 49.52L29.60 49.34L30.38 49.12L31.15 48.84L31.89 48.53L32.61 48.16L33.30 47.76L33.96 47.32L34.59 46.84L35.19 46.33L35.75 45.79L36.28 45.21L36.77 44.61L37.22 43.98L37.63 43.33L38.01 42.66L38.34 41.97L38.63 41.27L38.88 40.55L39.09 39.82L39.25 39.09L39.37 38.34L39.46 37.59L39.50 36.84L39.50 35.85L39.50 34.65L39.50 33.46L39.50 32.27L39.50 31.08L39.50 29.89L39.50 28.69L39.50 27.50L39.50 26.31L39.50 25.12L39.50 23.92L39.50 22.73L39.50 21.54L39.50 20.35L39.50 19.15L39.50 17.96L39.50 16.77L39.50 15.58L39.50 14.38L39.50 13.19L39.50 12.00Z"/>
+    <circle id="ball" cx="24" cy="16.500" r="11.500"/>
+    <circle id="ball-sm" cx="23.500" cy="17" r="12"/>
+    <rect id="p-invoice" x="13.500" y="5" width="21" height="24" rx="3.500"/>
+    <path id="p-sun" d="M17.5 17.0a6.500 6.500 0 1 0 13 0a6.500 6.500 0 1 0-13 0zM33.20 18.70L37.00 18.70L37.00 15.30L33.20 15.30ZM29.30 24.71L31.99 27.39L34.39 24.99L31.71 22.30ZM22.30 26.20L22.30 30.00L25.70 30.00L25.70 26.20ZM16.29 22.30L13.61 24.99L16.01 27.39L18.70 24.71ZM14.80 15.30L11.00 15.30L11.00 18.70L14.80 18.70ZM18.70 9.29L16.01 6.61L13.61 9.01L16.29 11.70ZM25.70 7.80L25.70 4.00L22.30 4.00L22.30 7.80ZM31.71 11.70L34.39 9.01L31.99 6.61L29.30 9.29Z"/>
+    <path id="p-gear" fill-rule="evenodd" d="M21.76 7.67L22.17 4.13L25.83 4.13L26.24 7.67L29.02 8.81L31.81 6.60L34.40 9.19L32.19 11.98L33.33 14.76L36.87 15.17L36.87 18.83L33.33 19.24L32.19 22.02L34.40 24.81L31.81 27.40L29.02 25.19L26.24 26.33L25.83 29.87L22.17 29.87L21.76 26.33L18.98 25.19L16.19 27.40L13.60 24.81L15.81 22.02L14.67 19.24L11.13 18.83L11.13 15.17L14.67 14.76L15.81 11.98L13.60 9.19L16.19 6.60L18.98 8.81ZM20.0 17.0a4 4 0 1 0 8 0a4 4 0 1 0-8 0z"/>
+  </defs>
+</svg>
+
+<header class="fascia" id="top">
+  <div class="inner">
+    <div class="bar">
+      <a class="brand" href="#top" aria-label="gnoshcodes home">
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#hook" fill="#D2561B"/><use href="#ball" fill="#0F1F3D"/></svg>
+        <span class="wm">gnosh<b>codes</b></span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#tools">Tools</a>
+        <a href="#choose">How we choose</a>
+        <a href="#made">How it's made</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1><span>Small tools.</span> <span class="easier">A little easier.</span></h1>
+      <div class="hero-side">
+        <p class="lede">Each one is built for <b>someone</b>, to make <b>one thing</b> in their life take less out of them.</p>
+        <p class="early"><a class="btn" href="https://apps.apple.com/us/app/quick-invoice-for-tradespeople/id6827408551"><small>Quick Invoice for Tradespeople</small><span>Get it on the App Store <span class="arr" aria-hidden="true">&rarr;</span></span></a></p>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+
+<section class="board" id="tools" aria-labelledby="tools-h">
+  <div class="inner">
+    <div class="wall">
+      <div class="talker">
+        <svg class="tkhook" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#hook" fill="#D2561B"/></svg>
+        <i class="tkstring"></i><i class="eyelet"></i>
+        <p class="kicker">The tools</p>
+        <h2 id="tools-h">Three so far. Each one starts with a person and a&nbsp;chore.</h2>
+      </div>
+      <ul class="tools">
+        <li class="tool" style="--r:-.5deg">
+          <div class="obj" aria-hidden="true">
+            <svg class="thing" viewBox="0 0 260 360" focusable="false"><g transform="translate(0 36)"><rect x="47" y="49" width="180" height="252" rx="12" fill="#4A2A0E"/>
+              <rect x="44" y="45" width="180" height="252" rx="12" fill="#5A3414"/>
+              <rect x="40" y="40" width="180" height="252" rx="12" fill="url(#gBoard)"/>
+              <rect x="41.5" y="41.5" width="177" height="249" rx="11" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1.6"/>
+              <rect x="59" y="90" width="152" height="192" fill="#000" opacity=".28"/>
+              <rect x="56" y="87" width="150" height="190" fill="#DCCBA2" transform="rotate(2.2 130 180)"/>
+              <rect x="54" y="84" width="152" height="192" fill="url(#gPaper)"/>
+              <text x="66" y="124" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="22" letter-spacing="2.5" fill="#0F1F3D">INVOICE</text>
+              <rect x="66" y="131" width="128" height="3" fill="#0F1F3D"/>
+              <g stroke="#0F1F3D" stroke-width="3.2" stroke-linecap="round" opacity=".42">
+                <path d="M67 148h76M67 163h58M67 178h70M67 193h46"/>
+                <path d="M170 148h23M174 163h19M168 178h25M176 193h17"/>
+              </g>
+              <rect x="150" y="204" width="44" height="17" fill="none" stroke="#0F1F3D" stroke-width="2"/>
+              <path d="M158 213h28" stroke="#0F1F3D" stroke-width="3.2" stroke-linecap="round"/>
+              <g transform="rotate(-13 116 240)">
+                <rect x="68" y="219" width="98" height="42" rx="6" fill="none" stroke="#C8501B" stroke-width="4"/>
+                <text x="118" y="252" text-anchor="middle" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="35" letter-spacing="4" fill="#C8501B">PAID</text>
+              </g>
+              <!-- pencil -->
+              <g transform="rotate(7 205 180)">
+                <rect x="199" y="112" width="15" height="126" fill="#5e2206" transform="translate(2.5 3)"/>
+                <rect x="199" y="112" width="15" height="126" fill="url(#gOrangeCyl)"/>
+                <rect x="199" y="104" width="15" height="10" fill="url(#gSteel)"/>
+                <rect x="199" y="96" width="15" height="9" rx="2" fill="#16284D"/>
+                <path d="M199 238h15l-7.5 22z" fill="#E8C690"/>
+                <path d="M204 251h5l-2.5 9z" fill="#0F1F3D"/>
+              </g>
+              <!-- clip -->
+              <rect x="80" y="97" width="100" height="6" fill="#000" opacity=".28"/>
+              <path fill-rule="evenodd" d="M103 68V46q0-25 27-25t27 25v22zM130 28a10 10 0 100 20 10 10 0 000-20z" fill="url(#gSteel)" stroke="#3D4756" stroke-width="1.5"/>
+              <rect x="78" y="62" width="104" height="35" rx="7" fill="url(#gSteel)" stroke="#3D4756" stroke-width="1.5"/>
+              <path d="M84 67h92" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+              <path d="M88 88h84" stroke="#3D4756" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+              <circle cx="96" cy="79" r="3.2" fill="url(#gRivet)" stroke="#3D4756"/><circle cx="164" cy="79" r="3.2" fill="url(#gRivet)" stroke="#3D4756"/></g></svg>
+            <svg class="onhook" viewBox="0 0 260 360" focusable="false"><use href="#hook" transform="translate(96.250 0) scale(1.250)" fill="#D2561B"/></svg>
+          </div>
+          <div class="tagwrap">
+            <i class="string"></i>
+            <div class="tag">
+              <i class="eyelet"></i>
+              <p class="tagno"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-invoice" fill="#0F1F3D"/></svg><span>For tradespeople</span></p>
+              <h3><span class="easier">A little easier</span> to get paid.</h3>
+              <p class="name">Quick Invoice for Tradespeople</p>
+              <p class="what">Quotes and invoices on an iPhone, for people who work with their hands and would rather not spend the evening on paperwork.</p>
+              <div class="tagfoot">
+                <span class="stamp live">Live on the App Store</span>
+                <a class="btn" href="https://apps.apple.com/us/app/quick-invoice-for-tradespeople/id6827408551">Get it on the App Store <span class="arr" aria-hidden="true">&rarr;</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="tool" style="--r:.4deg">
+          <div class="obj" aria-hidden="true">
+            <i class="glow"></i>
+            <svg class="thing" viewBox="0 0 260 360" focusable="false"><g transform="translate(0 27.500)"><path d="M84 126C82 62 108 33 130 33s48 29 46 93" fill="none" stroke="#3D4756" stroke-width="7" stroke-linecap="round"/>
+              <path d="M85 124C84 64 109 34 130 34" fill="none" stroke="#E9EDF1" stroke-width="2.4" stroke-linecap="round"/>
+              <!-- cap -->
+              <rect x="117" y="80" width="26" height="18" rx="4" fill="url(#gSteel)" stroke="#3D4756" stroke-width="1.2"/>
+              <path d="M76 132c0-26 26-40 54-40s54 14 54 40z" fill="url(#gOrangeCyl)"/>
+              <path d="M96 104q30-14 62-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+              <ellipse cx="130" cy="132" rx="58" ry="9.5" fill="#7E2E08"/>
+              <ellipse cx="130" cy="130" rx="58" ry="8.5" fill="url(#gOrangeCyl)"/>
+              <!-- glass -->
+              <path d="M85 136h90l5 98H80z" fill="url(#gGlass)"/>
+              <ellipse cx="130" cy="190" rx="13" ry="25" fill="#fff"/>
+              <path d="M96 142l-4 84" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".65"/>
+              <path d="M107 137l-3 96M130 137v97M153 137l3 96" stroke="#3D4756" stroke-width="3.2"/>
+              <path d="M82 184q48 12 96 0" fill="none" stroke="#3D4756" stroke-width="3.2"/>
+              <path d="M85 136h90" stroke="#5e2206" stroke-width="3" opacity=".5"/>
+              <!-- base -->
+              <path d="M74 236h112l4 46q-60 16-120 0z" fill="url(#gOrangeCyl)"/>
+              <path d="M70 282q60 16 120 0l.6 7q-60.6 17-121.2 0z" fill="#6A2606"/>
+              <ellipse cx="130" cy="236" rx="56" ry="8.5" fill="#7E2E08"/>
+              <ellipse cx="130" cy="234" rx="56" ry="7.5" fill="url(#gOrangeCyl)"/>
+              <ellipse cx="130" cy="263" rx="27" ry="11" fill="#0F1F3D"/>
+              <ellipse cx="130" cy="262" rx="24" ry="9" fill="#FBF3E0"/>
+              <path d="M130 255.500v2.500M130 266v2.500M121.500 262h2.800M135.700 262h2.800M124 257.500l1.800 1.300M134.200 265.200l1.800 1.300M136 257.500l-1.800 1.300M125.800 265.200l-1.800 1.300" stroke="#C8501B" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="130" cy="262" r="2.800" fill="#C8501B"/></g></svg>
+            <svg class="onhook" viewBox="0 0 260 360" focusable="false"><use href="#hook" transform="translate(96.250 0) scale(1.250)" fill="#D2561B"/></svg>
+          </div>
+          <div class="tagwrap">
+            <i class="string"></i>
+            <div class="tag">
+              <i class="eyelet"></i>
+              <p class="tagno"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-sun" fill="#0F1F3D"/></svg><span>For Clarksville and Montgomery County residents</span></p>
+              <h3><span class="easier">A little easier</span> to see what your local government did.</h3>
+              <p class="name">Daylight</p>
+              <p class="what">Agendas, minutes, votes and budgets from Clarksville and Montgomery County, Tennessee, in one searchable place. Every fact links to the official document it came from. Free for residents.</p>
+              <div class="tagfoot"><span class="stamp">Opening soon</span></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="tool" style="--r:-.4deg">
+          <div class="obj" aria-hidden="true">
+            <svg class="thing" viewBox="0 0 260 360" focusable="false"><g transform="translate(0 62)"><!-- cards -->
+              <g transform="rotate(-17 96 236)">
+                <rect x="62" y="172" width="76" height="116" rx="7" fill="#B9A377" transform="translate(2.5 3)"/>
+                <rect x="62" y="172" width="76" height="116" rx="7" fill="url(#gPaper)"/>
+                <rect x="68" y="178" width="64" height="104" rx="4" fill="none" stroke="#0F1F3D" stroke-width="2"/>
+                <use href="#gearPath" transform="translate(100 252) scale(.2)" fill="#C8501B"/>
+                <circle cx="100" cy="252" r="6" fill="#FBF3E0"/>
+              </g>
+              <g transform="rotate(15 170 236)">
+                <rect x="128" y="172" width="76" height="116" rx="7" fill="#B9A377" transform="translate(2.5 3)"/>
+                <rect x="128" y="172" width="76" height="116" rx="7" fill="#16284D"/>
+                <rect x="134" y="178" width="64" height="104" rx="4" fill="none" stroke="#F5EBD4" stroke-width="2"/>
+                <path d="M166 232l14 20-14 20-14-20z" fill="#E8702A"/>
+                <path d="M166 241l8 11-8 11-8-11z" fill="#16284D"/>
+              </g>
+              <!-- gear -->
+              <g transform="translate(130 128)">
+                <use href="#gearPath" transform="translate(9 10)" fill="#5e2206"/>
+                <use href="#gearPath" transform="translate(7 8)" fill="#6A2606"/>
+                <use href="#gearPath" transform="translate(5 6)" fill="#6A2606"/>
+                <use href="#gearPath" transform="translate(3 3.500)" fill="#7E2E08"/>
+                <use href="#gearPath" fill="url(#gOrange)"/>
+                <use href="#gearPath" fill="none" stroke="#FFC08A" stroke-width="1.6" stroke-opacity=".7" transform="translate(-.8 -.8)"/>
+                <circle r="61" fill="none" stroke="#8E340B" stroke-width="3.5"/>
+                <circle r="58.500" fill="none" stroke="#FFC08A" stroke-width="1.4" stroke-opacity=".55"/>
+                <g>
+                  <g id="ghole"><circle cx="0" cy="-41" r="12.500" fill="#6A2606"/><circle cx="2.300" cy="-38.700" r="9" fill="#0B1730"/></g>
+                  <use href="#ghole" transform="rotate(60)"/><use href="#ghole" transform="rotate(120)"/><use href="#ghole" transform="rotate(180)"/><use href="#ghole" transform="rotate(240)"/><use href="#ghole" transform="rotate(300)"/>
+                </g>
+                <circle cx="2.500" cy="3" r="24" fill="#6A2606"/>
+                <circle r="24" fill="url(#gOrange)" stroke="#FFC08A" stroke-opacity=".6" stroke-width="1.4"/>
+                <circle r="12.500" fill="#6A2606"/>
+                <circle cx="1.500" cy="1.500" r="10" fill="#081226"/>
+                <path d="M-70 -42A82 82 0 01-22 -79" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".3"/>
+              </g>
+              <path d="M124.500 90L129 7q1-6 2 0l4.500 83" fill="none" stroke="#6b5836" stroke-width="4.600" stroke-linecap="round"/>
+              <path d="M124.500 90L129 7q1-6 2 0l4.500 83" fill="none" stroke="#E9D9B0" stroke-width="2.600" stroke-linecap="round" stroke-dasharray="4 3"/>
+            </g></svg>
+            <svg class="onhook" viewBox="0 0 260 360" focusable="false"><use href="#hook" transform="translate(96.250 0) scale(1.250)" fill="#D2561B"/></svg>
+          </div>
+          <div class="tagwrap">
+            <i class="string"></i>
+            <div class="tag">
+              <i class="eyelet"></i>
+              <p class="tagno"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-gear" fill="#0F1F3D"/></svg><span>For people who like to tinker</span></p>
+              <h3><span class="easier">A little easier</span> to lose an evening.</h3>
+              <p class="name">Feedstock <small>(working title)</small></p>
+              <p class="what">A PC card game where your cards feed a factory, and the route through your machines decides how each card is forged. Life needs some play in it too.</p>
+              <div class="tagfoot"><span class="stamp">In development</span></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="shelf" aria-hidden="true"></div>
+
+  <section class="choose" id="choose">
+    <div class="inner">
+      <div class="choose-head">
+        <div>
+          <p class="kicker">How we choose</p>
+          <h2 class="big">A little is the whole goal.</h2>
+        </div>
+        <p class="intro">We are not trying to change the world. We are trying to take one small weight off one person's day, then do it again for someone else.</p>
+      </div>
+      <div class="cabinet">
+        <div class="drawer"><h3>Someone specific</h3><p>Every tool starts with a real person and the thing that eats their time. If we can't name who it's for, we don't build it.</p></div>
+        <div class="drawer"><h3>One job</h3><p>A tool does one thing and gets out of the way. You should not need a manual, an account manager or a free afternoon.</p></div>
+        <div class="drawer"><h3>Plain dealing</h3><p>We say what a tool does, what it costs and how it was made, in words you don't have to decode.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="made" id="made">
+    <div class="inner">
+      <p class="kicker">How it's made</p>
+      <h2>Built by AI agents. <span>Answered for by a&nbsp;person.</span></h2>
+
+      <div class="tape">
+        <div class="case" aria-hidden="true">
+          <svg viewBox="0 0 140 140" focusable="false">
+            <rect x="10" y="11" width="122" height="122" rx="27" fill="#7E2E08"/>
+            <rect x="4" y="4" width="122" height="122" rx="27" fill="url(#gOrange)"/>
+            <rect x="112" y="68" width="22" height="58" rx="3" fill="#081226"/>
+            <rect x="76" y="-4" width="34" height="15" rx="5" fill="#16284D"/>
+            <g class="m"><g transform="translate(27 29) scale(1.180)"><use href="#hook" fill="#F5EBD4"/><use href="#ball" fill="#0F1F3D"/></g></g>
+          </svg>
+        </div>
+        <ol class="steps">
+          <li><h3>A chore comes in</h3><p>Someone has a thing that eats their time. That is the whole brief.</p></li>
+          <li><h3>Pin it down</h3><p>A product manager agent writes down who it's for and what done looks like.</p></li>
+          <li><h3>Draw it up</h3><p>Designer and architect agents plan the screens and the structure.</p></li>
+          <li><h3>Build it</h3><p>Engineer agents write the code and the tests that prove it works.</p></li>
+          <li><h3>Try to break it</h3><p>Reviewer, security and tester agents hunt for what's wrong. Work that fails goes back to be fixed.</p></li>
+          <li><h3>A person decides</h3><p>Nothing ships until gnosh, who owns the company, says yes.</p></li>
+        </ol>
+      </div>
+
+      <div class="about">
+        <div class="about-text">
+          <p>gnoshcodes is a small software company. The team is AI agents, each with one job. One person, gnosh, owns the company, makes the decisions and answers for everything we ship.</p>
+          <p class="plain">We tell you this up front because you should know how the thing in your hand was made. If a tool lets you down, a person reads the email.</p>
+        </div>
+        <dl class="ledger">
+          <div><dt>Art by people, when sales allow</dt><dd>Feedstock's art is AI-made for now. Proceeds from its sales go first to hiring a human artist for the full release. No one has been paid yet, and we will say so until that changes.</dd></div>
+          <div><dt>Tips</dt><dd>Tips through <a href="https://www.buymeacoffee.com/gnoshcodes">Buy Me a Coffee</a> go to gnosh personally.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+<section class="board orange contact" id="contact">
+  <div class="inner">
+    <div class="contact-grid">
+      <div class="missing" aria-hidden="true">
+        <svg viewBox="0 0 260 440" focusable="false">
+          <defs><mask id="wr"><rect width="260" height="440" fill="#fff"/><circle cx="130" cy="86" r="19" fill="#000"/><path d="M112 440V372a8 8 0 018-8h20a8 8 0 018 8v68z" fill="#000" transform="rotate(14 130 372)"/></mask></defs>
+          <g mask="url(#wr)" fill="#0F1F3D" opacity=".9">
+            <circle cx="130" cy="86" r="38"/>
+            <path d="M113 112h34l3 222h-40z"/>
+            <circle cx="130" cy="372" r="48"/>
+          </g>
+        </svg>
+        <svg class="onhook" viewBox="0 0 260 440" focusable="false"><use href="#hook" transform="translate(96.250 0) scale(1.250)" fill="#F5EBD4"/></svg>
+      </div>
+      <div class="hang">
+        <svg class="tophook" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#hook" fill="#F5EBD4"/></svg>
+        <div class="tagwrap" style="--r:-.4deg">
+          <i class="string"></i>
+          <div class="tag">
+            <i class="eyelet"></i>
+            <h2>What in your day is harder than it should be<span class="q">?</span></h2>
+            <p>Tell us. The next tool might start with your chore. Questions about a tool we already make are welcome too.</p>
+            <a class="btn" href="mailto:brian@gnoshcodes.com">brian@gnoshcodes.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="markstrip" aria-labelledby="mark-h">
+  <div class="inner">
+    <div class="markhead">
+      <h2 class="kicker" id="mark-h">The mark</h2>
+      <p>The hook: a pegboard hook, a peg, and a g. The hook stays the same. What hangs on it changes.</p>
+    </div>
+    <ul class="marks">
+      <li class="primary"><svg viewBox="0 0 64 64" role="img" aria-label="The gnoshcodes hook mark: an orange hook holding a navy peg"><use href="#hook" fill="#D2561B"/><use href="#ball" fill="#0F1F3D"/></svg><small>Two colours</small></li>
+      <li><svg viewBox="0 0 64 64" aria-hidden="true" fill="#0F1F3D"><use href="#hook"/><use href="#ball"/></svg><small>One colour, navy</small></li>
+      <li><svg viewBox="0 0 64 64" aria-hidden="true" fill="#C24A14"><use href="#hook"/><use href="#ball"/></svg><small>One colour, orange</small></li>
+      <li class="rev"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#E8702A"/><use href="#ball" fill="#F5EBD4"/></svg><small>Reversed</small></li>
+      <li><span class="app"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#F5EBD4"/><use href="#ball" fill="#0F1F3D"/></svg></span><small>App icon</small></li>
+      <li class="sizes"><svg viewBox="0 0 64 64" aria-hidden="true" fill="#0F1F3D"><use href="#hook"/><use href="#ball"/></svg><svg viewBox="0 0 64 64" aria-hidden="true" fill="#0F1F3D"><use href="#hook-sm"/><use href="#ball-sm"/></svg><small>32px and 16px</small></li>
+      <li class="family">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-invoice" fill="#0F1F3D"/></svg>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-sun" fill="#0F1F3D"/></svg>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-gear" fill="#0F1F3D"/></svg>
+        <small>One hook, three tools</small>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="inner">
+    <span class="brand" aria-hidden="true">
+      <svg viewBox="0 0 64 64" focusable="false"><use href="#hook" fill="#E8702A"/><use href="#ball" fill="#F5EBD4"/></svg>
+      <span class="wm">gnosh<b>codes</b></span>
+    </span>
+    <span>&copy; 2026 gnoshcodes</span>
+    <p>The hook mark and wordmark are placeholders drawn by AI agents. We plan to replace them with a paid human artist's work.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // shop light follows the pointer across the pegboard
+  var board = document.getElementById('tools');
+  if (board && window.matchMedia('(hover: hover)').matches) {
+    var raf = 0;
+    board.addEventListener('pointermove', function(e){
+      if (raf) return;
+      raf = requestAnimationFrame(function(){
+        raf = 0;
+        var r = board.getBoundingClientRect();
+        board.style.setProperty('--lx', (e.clientX - r.left) + 'px');
+        board.style.setProperty('--ly', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+  // tags settle with a small swing the first time they come into view
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold: .35});
+    document.querySelectorAll('.tool, .hang').forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
