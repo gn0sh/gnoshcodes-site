@@ -1,51 +1,250 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>if(location.protocol==="http:"&&/(^|\.)gnoshcodes\.com$/.test(location.hostname))location.replace("https://"+location.host+location.pathname+location.search+location.hash)</script>
+<!--page-->
 <title>gnoshcodes</title>
-<meta name="description" content="A small software company built by AI agents and owned by one person. We want what our software earns to pay human artists.">
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Inter:wght@400;600&display=swap">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="gnoshcodes makes small tools that make life a little easier for someone, in some way. Built by AI agents, answered for by a person.">
+<meta property="og:title" content="gnoshcodes: small tools, a little easier">
+<meta property="og:description" content="Small tools that make life a little easier for someone, in some way.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gnoshcodes.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-/* Layout: one calm column; logo, mission, products, pledge, contact. */
-:root{--paper:#F7F8FC;--surface:#FFFFFF;--ink:#141A2E;--muted:#4A5470;--line:#D5DAE8;--blue:#2B4BA5;--orange:#B8401A;
---display:"Outfit",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0E1324;--surface:#182038;--ink:#EEF1F8;--muted:#A3ACC4;--line:#2C3552;--blue:#8EA6F0;--orange:#EF5E35;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#0E1324;--surface:#182038;--ink:#EEF1F8;--muted:#A3ACC4;--line:#2C3552;--blue:#8EA6F0;--orange:#EF5E35;color-scheme:dark}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
-.wrap{max-width:720px;margin:0 auto;padding-block:48px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:36px}
-.logo svg{width:min(360px,100%);height:auto;display:block}
-.logo .dk{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo .lt{display:none} :root:not([data-theme="light"]) .logo .dk{display:block}}
-:root[data-theme="dark"] .logo .lt{display:none} :root[data-theme="dark"] .logo .dk{display:block}
-h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,5vw,34px);line-height:1.2;text-wrap:balance;margin:0}
-h2{font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 8px;color:var(--blue)}
-p{margin:0 0 10px;max-width:65ch} .muted{color:var(--muted)}
-section{display:flex;flex-direction:column;gap:4px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0}
-.card b{font-family:var(--display);font-size:18px} .tag{font-size:13px;color:var(--muted)}
-blockquote{margin:6px 0 10px;padding:6px 14px;border-left:3px solid var(--orange)}
-a{color:var(--blue)} .credit{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+/* Layout: one solid blue band states the idea with a lever drawing (small push, big lift);
+   below it, quiet rows on cool paper. The orange dot is the brand: the small thing that does the lifting. */
+:root{
+  --ground:#F4F6FB; --surface:#FFFFFF; --ink:#131A33; --muted:#4C5675; --line:#D6DCEC;
+  --brand:#2B4BA5; --on-brand:#FFFFFF; --on-brand-soft:#D5DDF7; --brand-lift:#4666C2;
+  --link:#2B4BA5; --dot:#EF5E35; --accent-text:#B8401A;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0D1226; --surface:#161D38; --ink:#EEF1FA; --muted:#A6AFCB; --line:#2A3355;
+  --brand:#223C8A; --on-brand:#FFFFFF; --on-brand-soft:#CBD5F5; --brand-lift:#3A57AE;
+  --link:#9DB2F5; --dot:#EF5E35; --accent-text:#F58A68; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0D1226; --surface:#161D38; --ink:#EEF1FA; --muted:#A6AFCB; --line:#2A3355;
+  --brand:#223C8A; --on-brand:#FFFFFF; --on-brand-soft:#CBD5F5; --brand-lift:#3A57AE;
+  --link:#9DB2F5; --dot:#EF5E35; --accent-text:#F58A68; color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
+.inner{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2px}
+.dot{color:var(--dot)}
+
+/* Blue band */
+.band{background:var(--brand);color:var(--on-brand)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;color:var(--on-brand);text-decoration:none}
+.brand svg{width:34px;height:34px;flex:none}
+.nav{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;font-weight:500}
+.nav a{color:var(--on-brand-soft);text-decoration:none}
+.nav a:hover{color:var(--on-brand);text-decoration:underline}
+.band a:focus-visible{outline-color:var(--on-brand)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:40px 72px}
+.hero h1{font-weight:800;font-size:clamp(40px,6vw,68px);line-height:1.0;letter-spacing:-.025em}
+.hero .lede{margin-top:22px;font-size:clamp(18px,2vw,21px);line-height:1.5;color:var(--on-brand-soft);max-width:34ch}
+.hero .lede b{color:var(--on-brand);font-weight:600}
+.lever{width:100%;height:auto;display:block;overflow:visible}
+.lever .beam{transform-origin:330px 250px;transform:rotate(-9deg)}
+.lever text{font-family:var(--display);font-weight:500;font-size:15px;fill:var(--on-brand-soft)}
+@media (prefers-reduced-motion:no-preference){
+  .lever .beam{animation:lift 1.5s cubic-bezier(.3,1.35,.5,1) .35s backwards}
+  @keyframes lift{from{transform:rotate(15deg)}}
+}
+@media (max-width:760px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:20px 48px}
+  .lever{max-width:440px}
+}
+
+/* Sections */
+.section{padding-block:72px 0}
+.section:last-of-type{padding-bottom:72px}
+.kicker{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px}
+.section h2{font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-.02em;max-width:22ch}
+.section .intro{margin-top:14px;color:var(--muted);max-width:60ch}
+
+/* Tools: rows, each named by what gets easier */
+.tools{list-style:none;margin:36px 0 0;padding:0;border-top:1px solid var(--line)}
+.tool{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,15rem);gap:8px 28px;align-items:start;padding-block:32px;border-bottom:1px solid var(--line)}
+.tool .icon{width:56px;height:56px;color:var(--link)}
+.tool .icon .o{color:var(--dot)}
+.tool h3{font-weight:700;font-size:clamp(23px,2.6vw,30px);line-height:1.15;letter-spacing:-.015em}
+.tool h3 .soft{color:var(--muted);font-weight:500}
+.tool .name{margin-top:8px;font-weight:600}
+.tool .what{margin-top:4px;color:var(--muted);max-width:52ch}
+.tool .side{display:flex;flex-direction:column;gap:10px;align-items:flex-start;padding-top:6px;font-size:15px}
+.who{color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.status i{width:10px;height:10px;border-radius:50%;border:2px solid var(--dot);flex:none}
+.status.live i{background:var(--dot)}
+.go{font-weight:600}
+@media (max-width:760px){
+  .tool{grid-template-columns:minmax(0,1fr);padding-block:26px}
+  .tool .icon{width:48px;height:48px}
+  .tool .side{padding-top:8px}
+}
+
+/* How we choose */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;margin-top:36px}
+.rules h3{font-weight:700;font-size:21px;line-height:1.2;display:flex;gap:10px;align-items:baseline}
+.rules h3::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--dot);flex:none}
+.rules p{margin-top:8px;color:var(--muted)}
+@media (max-width:760px){.rules{grid-template-columns:minmax(0,1fr);gap:26px}}
+
+/* How it's made */
+.made{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px 56px;margin-top:36px;align-items:start}
+.made p + p{margin-top:14px}
+.made .plain{color:var(--muted)}
+.ledger{margin:0;padding:24px 26px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;gap:18px}
+.ledger div{display:grid;gap:2px}
+.ledger dt{font-family:var(--display);font-weight:700;font-size:17px}
+.ledger dd{margin:0;color:var(--muted);font-size:16px}
+@media (max-width:760px){.made{grid-template-columns:minmax(0,1fr)}}
+
+/* Contact + foot */
+.ask{margin-top:72px}
+.ask .inner{padding-block:64px}
+.ask h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.02em;max-width:18ch}
+.ask p{margin-top:16px;color:var(--on-brand-soft);max-width:48ch;font-size:19px}
+.ask .mail{display:inline-block;margin-top:22px;font-family:var(--display);font-weight:700;font-size:clamp(20px,2.6vw,26px);color:var(--on-brand);overflow-wrap:anywhere}
+.foot{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;gap:8px 28px;flex-wrap:wrap;justify-content:space-between}
 </style>
-</head><body><div class="wrap">
-<div class="logo"><div class="lt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 349 56" role="img" aria-label="gnoshcodes"><path fill="#2B4BA5" d="M8 20h6v6h-6zM8 26h6v6h-6zM8 32h6v6h-6zM8 38h6v6h-6zM14 14h6v6h-6zM14 20h6v6h-6zM14 38h6v6h-6zM14 44h6v6h-6zM20 8h6v6h-6zM20 14h6v6h-6zM20 44h6v6h-6zM20 50h6v6h-6zM26 8h6v6h-6zM26 50h6v6h-6z"/><path d="M32 11A21 21 0 0 1 32 53" fill="none" stroke="#EF5E35" stroke-width="6"/><path fill="#2B4BA5" d="M82 24h4v4h-4zM82 28h4v4h-4zM82 32h4v4h-4zM82 36h4v4h-4zM82 52h4v4h-4zM86 20h4v4h-4zM86 40h4v4h-4zM86 52h4v4h-4zM90 20h4v4h-4zM90 40h4v4h-4zM90 52h4v4h-4zM94 20h4v4h-4zM94 40h4v4h-4zM94 52h4v4h-4zM98 20h4v4h-4zM98 40h4v4h-4zM98 52h4v4h-4zM102 20h4v4h-4zM102 24h4v4h-4zM102 28h4v4h-4zM102 32h4v4h-4zM102 36h4v4h-4zM102 40h4v4h-4zM102 44h4v4h-4zM102 48h4v4h-4zM111 20h4v4h-4zM111 24h4v4h-4zM111 28h4v4h-4zM111 32h4v4h-4zM111 36h4v4h-4zM111 40h4v4h-4zM115 24h4v4h-4zM119 20h4v4h-4zM123 20h4v4h-4zM127 20h4v4h-4zM131 24h4v4h-4zM131 28h4v4h-4zM131 32h4v4h-4zM131 36h4v4h-4zM131 40h4v4h-4zM140 24h4v4h-4zM140 28h4v4h-4zM140 32h4v4h-4zM140 36h4v4h-4zM144 20h4v4h-4zM144 40h4v4h-4zM148 20h4v4h-4zM148 40h4v4h-4zM152 20h4v4h-4zM152 40h4v4h-4zM156 20h4v4h-4zM156 40h4v4h-4zM160 24h4v4h-4zM160 28h4v4h-4zM160 32h4v4h-4zM160 36h4v4h-4z"/><path d="M182.95 23.46L178 22L173.05 23.46L171 27L173.05 30.54L178 32M178 32L182.95 33.46L185 37L182.95 40.54L178 42L173.05 40.54M194 12L194 42M194 31L196.64 24.64L203 22L209.36 24.64L212 31M212 31L212 42M238.07 24.93L231 22L223.93 24.93L221 32L223.93 39.07L231 42L238.07 39.07" fill="none" stroke="#2B4BA5" stroke-width="4" stroke-linejoin="miter"/><path d="M268 32A10 10 0 1 1 248 32A10 10 0 1 1 268 32M297 32A10 10 0 1 1 277 32A10 10 0 1 1 297 32M297 12V42M306 32H326A10 10 0 1 0 323.07 39.07M346.95 23.46A7 5 0 1 0 342 32A7 5 0 1 1 337.05 40.54" fill="none" stroke="#EF5E35" stroke-width="4"/></svg>
-</div><div class="dk"><svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 349 56" role="img" aria-label="gnoshcodes"><path fill="#8EA6F0" d="M8 20h6v6h-6zM8 26h6v6h-6zM8 32h6v6h-6zM8 38h6v6h-6zM14 14h6v6h-6zM14 20h6v6h-6zM14 38h6v6h-6zM14 44h6v6h-6zM20 8h6v6h-6zM20 14h6v6h-6zM20 44h6v6h-6zM20 50h6v6h-6zM26 8h6v6h-6zM26 50h6v6h-6z"/><path d="M32 11A21 21 0 0 1 32 53" fill="none" stroke="#EF5E35" stroke-width="6"/><path fill="#8EA6F0" d="M82 24h4v4h-4zM82 28h4v4h-4zM82 32h4v4h-4zM82 36h4v4h-4zM82 52h4v4h-4zM86 20h4v4h-4zM86 40h4v4h-4zM86 52h4v4h-4zM90 20h4v4h-4zM90 40h4v4h-4zM90 52h4v4h-4zM94 20h4v4h-4zM94 40h4v4h-4zM94 52h4v4h-4zM98 20h4v4h-4zM98 40h4v4h-4zM98 52h4v4h-4zM102 20h4v4h-4zM102 24h4v4h-4zM102 28h4v4h-4zM102 32h4v4h-4zM102 36h4v4h-4zM102 40h4v4h-4zM102 44h4v4h-4zM102 48h4v4h-4zM111 20h4v4h-4zM111 24h4v4h-4zM111 28h4v4h-4zM111 32h4v4h-4zM111 36h4v4h-4zM111 40h4v4h-4zM115 24h4v4h-4zM119 20h4v4h-4zM123 20h4v4h-4zM127 20h4v4h-4zM131 24h4v4h-4zM131 28h4v4h-4zM131 32h4v4h-4zM131 36h4v4h-4zM131 40h4v4h-4zM140 24h4v4h-4zM140 28h4v4h-4zM140 32h4v4h-4zM140 36h4v4h-4zM144 20h4v4h-4zM144 40h4v4h-4zM148 20h4v4h-4zM148 40h4v4h-4zM152 20h4v4h-4zM152 40h4v4h-4zM156 20h4v4h-4zM156 40h4v4h-4zM160 24h4v4h-4zM160 28h4v4h-4zM160 32h4v4h-4zM160 36h4v4h-4z"/><path d="M182.95 23.46L178 22L173.05 23.46L171 27L173.05 30.54L178 32M178 32L182.95 33.46L185 37L182.95 40.54L178 42L173.05 40.54M194 12L194 42M194 31L196.64 24.64L203 22L209.36 24.64L212 31M212 31L212 42M238.07 24.93L231 22L223.93 24.93L221 32L223.93 39.07L231 42L238.07 39.07" fill="none" stroke="#8EA6F0" stroke-width="4" stroke-linejoin="miter"/><path d="M268 32A10 10 0 1 1 248 32A10 10 0 1 1 268 32M297 32A10 10 0 1 1 277 32A10 10 0 1 1 297 32M297 12V42M306 32H326A10 10 0 1 0 323.07 39.07M346.95 23.46A7 5 0 1 0 342 32A7 5 0 1 1 337.05 40.54" fill="none" stroke="#EF5E35" stroke-width="4"/></svg>
-</div></div>
-<h1>AI agents build the software. We want what it earns to pay human artists.</h1>
-<section><h2>Who we are</h2>
-<p>gnoshcodes is a small software company built by AI agents and owned by one person, gnosh. The agents plan, design, code, review, test and write. gnosh owns every account and decision and answers for everything we ship.</p>
-<p>We aim to be the bridge between the people who use our software and the human creators we want it to pay: products worth buying, made in a way we explain, with earnings going toward paid commissions for artists and musicians.</p></section>
-<section><h2>What we've made</h2><div class="cards">
-<div class="card"><b>Quick Invoice for Tradespeople</b><p class="tag">iPhone app · live on the App Store</p><p>Quotes and invoices for people who work with their hands.</p><a href="https://apps.apple.com/us/app/quick-invoice-for-tradespeople/id6827408551">View on the App Store</a></div>
-<div class="card"><b>Feedstock</b> <span class="tag">(working title)</span><p class="tag">PC game · in development</p><p>A roguelite deckbuilder where your cards feed a factory, and the route through your machines decides how each card is forged.</p></div>
-</div></section>
-<section><h2>Our pledge</h2>
-<blockquote>"Any proceeds from sales will first be used to hire a human to do the art for the full release."</blockquote>
-<p>That is our one firm commitment so far, for Feedstock. "Proceeds" means everything above operating overhead, such as store fees, taxes and the tools that keep the team running. The artist will be credited by name.</p>
-<p class="muted">Where things stand: no product has paid a creator yet, and no artist or musician has been hired. We will say so plainly until that changes.</p></section>
-<section><h2>Artists and musicians</h2><p>We are not hiring yet. Portfolio details are coming; email us to hear when that changes.</p></section>
-<section><h2>Tips</h2><p>Tips through <a href="https://www.buymeacoffee.com/gnoshcodes">Buy Me a Coffee</a> go to gnosh personally. Sales are what fund human creators.</p></section>
-<section><h2>Contact</h2><p><a href="mailto:brian@gnoshcodes.com">brian@gnoshcodes.com</a></p></section>
-<p class="credit">This logo is a placeholder drawn by AI agents. We plan to replace it with a paid human artist's work.</p>
-</div>
+</head><body>
+
+<header class="band">
+  <div class="inner">
+    <div class="top">
+      <a class="brand" href="#top" id="top" aria-label="gnoshcodes home">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 30l-7 12h14z" fill="#FFFFFF"/><path d="M5 38L43 22" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none"/><circle cx="34.6" cy="15.6" r="7.2" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle cx="7.2" cy="30.6" r="4.4" fill="#EF5E35"/></svg>
+        gnoshcodes
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#tools">Tools</a>
+        <a href="#choose">How we choose</a>
+        <a href="#made">How it's made</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <div>
+        <h1>Small tools.<br>A little easier<span class="dot">.</span></h1>
+        <p class="lede">Each one is built for <b>someone</b>, to make <b>one thing</b> in their life take less out of them.</p>
+      </div>
+      <svg class="lever" viewBox="0 0 520 340" role="img" aria-label="A lever: a small orange dot on the long end lifts a large block on the short end.">
+        <path d="M24 302H496" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M330 252l-30 49h60z" fill="#FFFFFF"/>
+        <g class="beam">
+          <rect x="60" y="238" width="382" height="11" rx="5.5" fill="#FFFFFF"/>
+          <rect x="352" y="150" width="88" height="88" rx="10" fill="var(--brand-lift)" stroke="#FFFFFF" stroke-width="3"/>
+          <text x="396" y="190" text-anchor="middle" style="fill:#FFFFFF">the hard</text>
+          <text x="396" y="210" text-anchor="middle" style="fill:#FFFFFF">part</text>
+          <circle cx="82" cy="221" r="17" fill="#EF5E35"/>
+          <path d="M112 196c14-14 30-20 50-20" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <text x="170" y="181">a small tool</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="tools">
+    <div class="inner">
+      <p class="kicker">The tools</p>
+      <h2>Three so far. Each one starts with a person and a chore.</h2>
+      <ul class="tools">
+        <li class="tool">
+          <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6h20l10 10v34H14z"/><path d="M34 6v10h10"/><path d="M21 26h14M21 34h8"/><circle class="o" cx="36" cy="41" r="4" fill="currentColor" stroke="none"/></svg>
+          <div>
+            <h3>A little easier <span class="soft">to get paid.</span></h3>
+            <p class="name">Quick Invoice for Tradespeople</p>
+            <p class="what">Quotes and invoices on an iPhone, for people who work with their hands and would rather not spend the evening on paperwork.</p>
+          </div>
+          <div class="side">
+            <span class="status live"><i></i>Live on the App Store</span>
+            <span class="who">For tradespeople</span>
+            <a class="go" href="https://apps.apple.com/us/app/quick-invoice-for-tradespeople/id6827408551">Get it on the App Store</a>
+          </div>
+        </li>
+        <li class="tool">
+          <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 40h44"/><path d="M14 40a14 14 0 0 1 28 0"/><path d="M28 12v6M9 23l4 4M47 23l-4 4"/><path d="M16 48h24"/><circle class="o" cx="28" cy="40" r="4" fill="currentColor" stroke="none"/></svg>
+          <div>
+            <h3>A little easier <span class="soft">to see what your local government did.</span></h3>
+            <p class="name">Daylight</p>
+            <p class="what">Agendas, minutes, votes and budgets from Clarksville and Montgomery County, Tennessee, in one searchable place. Every fact links to the official document it came from. Free for residents.</p>
+          </div>
+          <div class="side">
+            <span class="status"><i></i>Opening soon</span>
+            <span class="who">For Clarksville and Montgomery County residents</span>
+          </div>
+        </li>
+        <li class="tool">
+          <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="22" height="30" rx="3"/><path d="M14 16h10M14 22h6"/><path d="M30 30h10v18H20V38"/><path d="M40 36h8M40 42h8"/><circle class="o" cx="30" cy="39" r="4" fill="currentColor" stroke="none"/></svg>
+          <div>
+            <h3>A little easier <span class="soft">to lose an evening.</span></h3>
+            <p class="name">Feedstock <span class="who">(working title)</span></p>
+            <p class="what">A PC card game where your cards feed a factory, and the route through your machines decides how each card is forged. Life needs some play in it too.</p>
+          </div>
+          <div class="side">
+            <span class="status"><i></i>In development</span>
+            <span class="who">For people who like to tinker</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="choose">
+    <div class="inner">
+      <p class="kicker">How we choose</p>
+      <h2>A little is the whole goal.</h2>
+      <p class="intro">We are not trying to change the world. We are trying to take one small weight off one person's day, then do it again for someone else.</p>
+      <div class="rules">
+        <div><h3>Someone specific</h3><p>Every tool starts with a real person and the thing that eats their time. If we can't name who it's for, we don't build it.</p></div>
+        <div><h3>One job</h3><p>A tool does one thing and gets out of the way. You should not need a manual, an account manager or a free afternoon.</p></div>
+        <div><h3>Plain dealing</h3><p>We say what a tool does, what it costs and how it was made, in words you don't have to decode.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="made">
+    <div class="inner">
+      <p class="kicker">How it's made</p>
+      <h2>Built by AI agents. Answered for by a person.</h2>
+      <div class="made">
+        <div>
+          <p>gnoshcodes is a small software company. A team of AI agents plans, designs, codes, reviews and tests every tool here. One person, gnosh, owns the company, makes the decisions and answers for everything we ship.</p>
+          <p class="plain">We tell you this up front because you should know how the thing in your hand was made. If a tool lets you down, a person reads the email.</p>
+        </div>
+        <dl class="ledger">
+          <div><dt>Art by people, when sales allow</dt><dd>Feedstock's art is AI-made for now. Proceeds from its sales go first to hiring a human artist for the full release. No one has been paid yet, and we will say so until that changes.</dd></div>
+          <div><dt>Tips</dt><dd>Tips through <a href="https://www.buymeacoffee.com/gnoshcodes">Buy Me a Coffee</a> go to gnosh personally.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="band ask" id="contact">
+  <div class="inner">
+    <h2>What in your day is harder than it should be<span class="dot">?</span></h2>
+    <p>Tell us. The next tool might start with your chore. Questions about a tool we already make are welcome too.</p>
+    <a class="mail" href="mailto:brian@gnoshcodes.com">brian@gnoshcodes.com</a>
+  </div>
+</section>
+
+<footer class="inner foot">
+  <span>© 2026 gnoshcodes</span>
+  <span>The logo and drawings on this page were made by AI.</span>
+</footer>
+<!--/page-->
 </body></html>
