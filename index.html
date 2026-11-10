@@ -9,8 +9,11 @@
 <meta property="og:description" content="Small tools that make life a little easier for someone, in some way.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gnoshcodes.com/">
+<link rel="canonical" href="https://gnoshcodes.com/">
+<meta name="theme-color" content="#2B4BA5">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: one solid blue band states the idea with a lever drawing (small push, big lift);
@@ -63,6 +66,8 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 @media (max-width:760px){
   .hero{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:20px 48px}
   .lever{max-width:440px}
+  .lever text{font-size:18px}
+  .lever .tag{font-size:23px}
 }
 
 /* Sections */
@@ -111,7 +116,6 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 @media (max-width:760px){.made{grid-template-columns:minmax(0,1fr)}}
 
 /* Contact + foot */
-.ask{margin-top:72px}
 .ask .inner{padding-block:64px}
 .ask h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.02em;max-width:18ch}
 .ask p{margin-top:16px;color:var(--on-brand-soft);max-width:48ch;font-size:19px}
@@ -123,7 +127,7 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 <header class="band">
   <div class="inner">
     <div class="top">
-      <a class="brand" href="#top" id="top" aria-label="gnoshcodes home">
+      <a class="brand" href="#" aria-label="gnoshcodes home">
         <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 30l-7 12h14z" fill="#FFFFFF"/><path d="M5 38L43 22" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none"/><circle cx="34.6" cy="15.6" r="7.2" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle cx="7.2" cy="30.6" r="4.4" fill="#EF5E35"/></svg>
         gnoshcodes
       </a>
@@ -149,7 +153,7 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
           <text x="396" y="210" text-anchor="middle" style="fill:#FFFFFF">part</text>
           <circle cx="82" cy="221" r="17" fill="#EF5E35"/>
           <path d="M112 196c14-14 30-20 50-20" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <text x="170" y="181">a small tool</text>
+          <text class="tag" x="170" y="181">a small tool</text>
         </g>
       </svg>
     </div>
