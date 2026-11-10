@@ -36,7 +36,7 @@ p{text-wrap:pretty}
 ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .inner{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
 @media(min-width:700px){.inner{padding:0 40px}}
-:focus-visible{outline:3px solid var(--orange-bright);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--orange-deep);outline-offset:3px;border-radius:4px;box-shadow:0 0 0 3px #FFF}
 .defs{position:absolute;width:0;height:0;overflow:hidden}
 .kicker{font:italic 500 clamp(19px,1.6vw,22px)/1.2 var(--text);color:var(--orange-deep);margin-bottom:10px}
 
@@ -250,9 +250,9 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
 .markstrip{position:relative;background:var(--grain),#F5EBD4;padding:56px 0 60px;box-shadow:inset 0 16px 20px -12px rgba(60,15,0,.5)}
 .markhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px;margin-bottom:24px}
 .markhead .kicker{margin:0}
-.marks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:800px){.marks{grid-template-columns:1.5fr repeat(4,1fr)}}
-.marks li{position:relative;display:flex;align-items:center;justify-content:center;gap:16px;min-height:168px;padding:20px 12px 40px;border-radius:6px;background:#FBF4E2;box-shadow:inset 0 0 0 1.5px rgba(15,31,61,.28)}
+.marks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:800px){.marks{grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr))}}
+.marks li{min-width:0;flex-wrap:wrap;position:relative;display:flex;align-items:center;justify-content:center;gap:16px;min-height:168px;padding:20px 12px 40px;border-radius:6px;background:#FBF4E2;box-shadow:inset 0 0 0 1.5px rgba(15,31,61,.28)}
 .marks li svg{display:block;width:88px;height:88px}
 .marks li.primary{grid-column:1/-1;min-height:230px}
 .marks li.primary svg{width:160px;height:160px}
@@ -293,6 +293,7 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .brand:hover svg,.btn:hover,.tool:hover .thing,.tool:focus-within .thing,.drawer:hover{transform:none!important}
 }
 </style>
 </head>
@@ -342,6 +343,7 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
     </div>
   </div>
 </header>
+<main>
 
 <section class="board" id="tools" aria-labelledby="tools-h">
   <div class="inner">
@@ -510,7 +512,6 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
 </section>
 <div class="shelf" aria-hidden="true"></div>
 
-<main>
   <section class="choose" id="choose">
     <div class="inner">
       <div class="choose-head">
@@ -565,7 +566,6 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
       </div>
     </div>
   </section>
-</main>
 
 <section class="board orange contact" id="contact">
   <div class="inner">
@@ -619,6 +619,8 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
     </ul>
   </div>
 </section>
+
+</main>
 
 <footer class="foot">
   <div class="inner">
