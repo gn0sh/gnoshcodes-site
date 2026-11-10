@@ -21,18 +21,18 @@
 :root{
   --ground:#F4F6FB; --surface:#FFFFFF; --ink:#131A33; --muted:#4C5675; --line:#D6DCEC;
   --brand:#2B4BA5; --on-brand:#FFFFFF; --on-brand-soft:#D5DDF7; --brand-lift:#4666C2;
-  --link:#2B4BA5; --dot:#EF5E35; --accent-text:#B8401A;
+  --link:#2B4BA5; --dot:#EF5E35; --accent-text:#B8401A; --tint:#E6EBF9;
   --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --ground:#0D1226; --surface:#161D38; --ink:#EEF1FA; --muted:#A6AFCB; --line:#2A3355;
   --brand:#223C8A; --on-brand:#FFFFFF; --on-brand-soft:#CBD5F5; --brand-lift:#3A57AE;
-  --link:#9DB2F5; --dot:#EF5E35; --accent-text:#F58A68; color-scheme:dark}}
+  --link:#9DB2F5; --dot:#EF5E35; --accent-text:#F58A68; --tint:#1A2347; color-scheme:dark}}
 :root[data-theme="dark"]{
   --ground:#0D1226; --surface:#161D38; --ink:#EEF1FA; --muted:#A6AFCB; --line:#2A3355;
   --brand:#223C8A; --on-brand:#FFFFFF; --on-brand-soft:#CBD5F5; --brand-lift:#3A57AE;
-  --link:#9DB2F5; --dot:#EF5E35; --accent-text:#F58A68; color-scheme:dark}
+  --link:#9DB2F5; --dot:#EF5E35; --accent-text:#F58A68; --tint:#1A2347; color-scheme:dark}
 
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
@@ -48,28 +48,24 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;color:var(--on-brand);text-decoration:none}
 .brand svg{width:34px;height:34px;flex:none}
-.nav{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;font-weight:500}
+.nav{display:flex;gap:6px 20px;flex-wrap:wrap;font-size:15px;font-weight:500}
 .nav a{color:var(--on-brand-soft);text-decoration:none}
 .nav a:hover{color:var(--on-brand);text-decoration:underline}
 .band a:focus-visible{outline-color:var(--on-brand)}
-.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:40px 72px}
-.hero h1{font-weight:800;font-size:clamp(40px,6vw,68px);line-height:1.0;letter-spacing:-.025em}
-.hero .lede{margin-top:22px;font-size:clamp(18px,2vw,21px);line-height:1.5;color:var(--on-brand-soft);max-width:34ch}
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end;padding-block:36px 28px}
+.hero h1{font-weight:800;font-size:clamp(44px,7.2vw,92px);line-height:.96;letter-spacing:-.03em}
+.hero .lede{font-size:clamp(18px,1.7vw,21px);line-height:1.5;color:var(--on-brand-soft);max-width:36ch;padding-bottom:.5em}
 .hero .lede b{color:var(--on-brand);font-weight:600}
-.lever{width:100%;height:auto;display:block;overflow:visible}
-.lever .beam{transform-origin:330px 250px;transform:rotate(-9deg)}
-.lever text{font-family:var(--display);font-weight:500;font-size:15px;fill:var(--on-brand-soft)}
-@media (prefers-reduced-motion:no-preference){
-  .lever .beam{animation:lift 1.5s cubic-bezier(.3,1.35,.5,1) .35s backwards}
-  @keyframes lift{from{transform:rotate(15deg)}}
-}
+.stage{max-width:1500px;margin:0 auto;overflow:hidden;min-height:200px}
+.stage.still{overflow-x:auto}
+.stage canvas{display:block}
+.stage:focus-visible{outline:3px solid var(--on-brand);outline-offset:-3px}
+.nojs{padding:40px 20px;color:var(--on-brand-soft);max-width:60ch;margin:0 auto}
+.stagenote{padding-block:14px 40px;font-size:15px;color:var(--on-brand-soft);max-width:70ch}
 @media (max-width:760px){
-  .hero{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:20px 48px}
-  .lever{max-width:440px}
-  .lever text{font-size:18px}
-  .lever .tag{font-size:23px}
+  .hero{grid-template-columns:minmax(0,1fr);gap:16px;padding-block:16px 20px}
+  .stagenote{padding-block:10px 32px}
 }
-
 /* Sections */
 .section{padding-block:72px 0}
 .section:last-of-type{padding-bottom:72px}
@@ -77,11 +73,10 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 .section h2{font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-.02em;max-width:22ch}
 .section .intro{margin-top:14px;color:var(--muted);max-width:60ch}
 
-/* Tools: rows, each named by what gets easier */
+/* Tools: rows, each named by what gets easier, each with a small working drawing */
 .tools{list-style:none;margin:36px 0 0;padding:0;border-top:1px solid var(--line)}
-.tool{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,15rem);gap:8px 28px;align-items:start;padding-block:32px;border-bottom:1px solid var(--line)}
-.tool .icon{width:56px;height:56px;color:var(--link)}
-.tool .icon .o{color:var(--dot)}
+.tool{display:grid;grid-template-columns:132px minmax(0,1fr) minmax(0,15rem);gap:8px 32px;align-items:start;padding-block:32px;border-bottom:1px solid var(--line)}
+.ill{width:132px;height:132px;color:var(--link);background:var(--tint);border-radius:50%;padding:14px;overflow:visible}
 .tool h3{font-weight:700;font-size:clamp(23px,2.6vw,30px);line-height:1.15;letter-spacing:-.015em}
 .tool h3 .soft{color:var(--muted);font-weight:500}
 .tool .name{margin-top:8px;font-weight:600}
@@ -92,12 +87,28 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 .status i{width:10px;height:10px;border-radius:50%;border:2px solid var(--dot);flex:none}
 .status.live i{background:var(--dot)}
 .go{font-weight:600}
+.day .rays{transform-origin:60px 80px}
+.fac .gear{transform-origin:82px 54px}
+.inv .l,.inv .ck{stroke-dasharray:34}
+@media (prefers-reduced-motion:no-preference){
+  .inv .l1{animation:write 6s ease-in-out infinite}
+  .inv .l2{animation:write 6s ease-in-out .5s infinite}
+  .inv .l3{animation:write 6s ease-in-out 1s infinite}
+  .inv .ck{animation:write 6s ease-in-out 1.6s infinite}
+  @keyframes write{0%,4%{stroke-dashoffset:34}16%,100%{stroke-dashoffset:0}}
+  .day .rays{animation:turn 48s linear infinite}
+  .fac .gear{animation:turn 9s linear infinite}
+  @keyframes turn{to{transform:rotate(360deg)}}
+  .fac .card{animation:feed 5s ease-in-out infinite}
+  @keyframes feed{0%{transform:translateX(-6px);opacity:0}12%{opacity:1}55%{transform:translateX(34px);opacity:1}68%,100%{transform:translateX(40px);opacity:0}}
+  .fac .out{transform-origin:103px 84px;animation:pop 5s ease-out infinite}
+  @keyframes pop{0%,60%{transform:scale(0)}72%,94%{transform:scale(1)}100%{transform:scale(0)}}
+}
 @media (max-width:760px){
   .tool{grid-template-columns:minmax(0,1fr);padding-block:26px}
-  .tool .icon{width:48px;height:48px}
+  .ill{width:104px;height:104px;padding:11px}
   .tool .side{padding-top:8px}
 }
-
 /* How we choose */
 .rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;margin-top:36px}
 .rules h3{font-weight:700;font-size:21px;line-height:1.2;display:flex;gap:10px;align-items:baseline}
@@ -106,15 +117,22 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
 @media (max-width:760px){.rules{grid-template-columns:minmax(0,1fr);gap:26px}}
 
 /* How it's made */
-.made{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px 56px;margin-top:36px;align-items:start}
+.steps{list-style:none;counter-reset:step;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 36px}
+.steps li{counter-increment:step;border-top:2px solid var(--ink);padding-top:14px}
+.steps li:last-child{border-top-color:var(--dot)}
+.steps li::before{content:counter(step);font-family:var(--display);font-weight:800;font-size:15px;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.steps h3{font-weight:700;font-size:21px;line-height:1.2;margin-top:2px}
+.steps p{margin-top:6px;color:var(--muted);font-size:16px}
+.made{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px 56px;margin-top:48px;align-items:start}
 .made p + p{margin-top:14px}
 .made .plain{color:var(--muted)}
 .ledger{margin:0;padding:24px 26px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;gap:18px}
 .ledger div{display:grid;gap:2px}
 .ledger dt{font-family:var(--display);font-weight:700;font-size:17px}
 .ledger dd{margin:0;color:var(--muted);font-size:16px}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.made{grid-template-columns:minmax(0,1fr)}}
-
+@media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr);gap:22px}}
 /* Contact + foot */
 .ask .inner{padding-block:64px}
 .ask h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.02em;max-width:18ch}
@@ -139,25 +157,15 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
       </nav>
     </div>
     <div class="hero">
-      <div>
-        <h1>Small tools.<br>A little easier<span class="dot">.</span></h1>
-        <p class="lede">Each one is built for <b>someone</b>, to make <b>one thing</b> in their life take less out of them.</p>
-      </div>
-      <svg class="lever" viewBox="0 0 520 340" role="img" aria-label="A lever: a small orange dot on the long end lifts a large block on the short end.">
-        <path d="M24 302H496" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M330 252l-30 49h60z" fill="#FFFFFF"/>
-        <g class="beam">
-          <rect x="60" y="238" width="382" height="11" rx="5.5" fill="#FFFFFF"/>
-          <rect x="352" y="150" width="88" height="88" rx="10" fill="var(--brand-lift)" stroke="#FFFFFF" stroke-width="3"/>
-          <text x="396" y="190" text-anchor="middle" style="fill:#FFFFFF">the hard</text>
-          <text x="396" y="210" text-anchor="middle" style="fill:#FFFFFF">part</text>
-          <circle cx="82" cy="221" r="17" fill="#EF5E35"/>
-          <path d="M112 196c14-14 30-20 50-20" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <text class="tag" x="170" y="181">a small tool</text>
-        </g>
-      </svg>
+      <h1>Small tools.<br>A little easier<span class="dot">.</span></h1>
+      <p class="lede">Each one is built for <b>someone</b>, to make <b>one thing</b> in their life take less out of them. Below is the shop floor, running.</p>
     </div>
   </div>
+  <div class="stage" id="stage">
+    <canvas id="works" role="img" aria-label="Animated drawing of how gnoshcodes makes a tool. A tangled scribble, the chore, rides a belt through five stations. A product manager agent straightens it into a brief. Designer and architect agents turn it into a plan. Engineer agents build it block by block. Reviewer, security and tester agents scan it, find a fault, and an engineer comes over to fix it. A person approves it at a gate. It comes out as a small orange dot, hops onto a lever and lifts a heavy block labeled the hard part."></canvas>
+    <noscript><p class="nojs">A chore comes in. AI agents pin it down, draw it up, build it and try to break it. A person decides. Out comes a small tool that lifts the hard part.</p></noscript>
+  </div>
+  <div class="inner"><p class="stagenote">How a tool gets made here. The dots are AI agents. The one figure at the gate is a person, and nothing ships past them without a yes.</p></div>
 </header>
 
 <main>
@@ -167,7 +175,7 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
       <h2>Three so far. Each one starts with a person and a chore.</h2>
       <ul class="tools">
         <li class="tool">
-          <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6h20l10 10v34H14z"/><path d="M34 6v10h10"/><path d="M21 26h14M21 34h8"/><circle class="o" cx="36" cy="41" r="4" fill="currentColor" stroke="none"/></svg>
+          <svg class="ill inv" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 16h38l18 18v70H32z"/><path d="M70 16v18h18"/><path class="l l1" d="M43 52h32"/><path class="l l2" d="M43 64h32"/><path class="l l3" d="M43 76h17"/><circle cx="80" cy="88" r="14" fill="#EF5E35" stroke="none"/><path class="ck" d="M73.5 88.5l4.5 4.5 8.5-9.5" stroke="#FFFFFF"/></svg>
           <div>
             <h3>A little easier <span class="soft">to get paid.</span></h3>
             <p class="name">Quick Invoice for Tradespeople</p>
@@ -180,7 +188,7 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
           </div>
         </li>
         <li class="tool">
-          <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 40h44"/><path d="M14 40a14 14 0 0 1 28 0"/><path d="M28 12v6M9 23l4 4M47 23l-4 4"/><path d="M16 48h24"/><circle class="o" cx="28" cy="40" r="4" fill="currentColor" stroke="none"/></svg>
+          <svg class="ill day" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><clipPath id="sky"><rect x="0" y="0" width="120" height="80"/></clipPath></defs><g clip-path="url(#sky)"><g class="rays"><path d="M60 42v-9M60 118v9M22 80h-9M98 80h9M33.1 53.1l-6.4-6.4M86.9 53.1l6.4-6.4M33.1 106.9l-6.4 6.4M86.9 106.9l6.4 6.4M45.5 44.9l-3.4-8.3M74.5 44.9l3.4-8.3M24.9 65.5l-8.3-3.4M95.1 65.5l8.3-3.4"/></g><circle cx="60" cy="80" r="21" fill="#EF5E35" stroke="none"/></g><path d="M14 80h92"/><path d="M28 94h64M28 106h40"/></svg>
           <div>
             <h3>A little easier <span class="soft">to see what your local government did.</span></h3>
             <p class="name">Daylight</p>
@@ -192,7 +200,7 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
           </div>
         </li>
         <li class="tool">
-          <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="22" height="30" rx="3"/><path d="M14 16h10M14 22h6"/><path d="M30 30h10v18H20V38"/><path d="M40 36h8M40 42h8"/><circle class="o" cx="30" cy="39" r="4" fill="currentColor" stroke="none"/></svg>
+          <svg class="ill fac" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 92h96"/><g class="gear"><circle cx="82" cy="54" r="19" stroke-width="8" stroke-dasharray="7.46 7.46" stroke-linecap="butt"/><circle cx="82" cy="54" r="13"/><circle cx="82" cy="54" r="3" fill="currentColor" stroke="none"/></g><g class="card"><rect x="16" y="58" width="24" height="32" rx="3"/><path d="M22 67h12M22 74h7"/></g><circle class="out" cx="103" cy="84" r="6.5" fill="#EF5E35" stroke="none"/></svg>
           <div>
             <h3>A little easier <span class="soft">to lose an evening.</span></h3>
             <p class="name">Feedstock <span class="who">(working title)</span></p>
@@ -224,9 +232,17 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
     <div class="inner">
       <p class="kicker">How it's made</p>
       <h2>Built by AI agents. Answered for by a person.</h2>
+      <ol class="steps">
+        <li><h3>A chore comes in</h3><p>Someone has a thing that eats their time. That is the whole brief.</p></li>
+        <li><h3>Pin it down</h3><p>A product manager agent writes down who it's for and what done looks like.</p></li>
+        <li><h3>Draw it up</h3><p>Designer and architect agents plan the screens and the structure.</p></li>
+        <li><h3>Build it</h3><p>Engineer agents write the code and the tests that prove it works.</p></li>
+        <li><h3>Try to break it</h3><p>Reviewer, security and tester agents hunt for what's wrong. Work that fails goes back to be fixed.</p></li>
+        <li><h3>A person decides</h3><p>Nothing ships until gnosh, who owns the company, says yes.</p></li>
+      </ol>
       <div class="made">
         <div>
-          <p>gnoshcodes is a small software company. A team of AI agents plans, designs, codes, reviews and tests every tool here. One person, gnosh, owns the company, makes the decisions and answers for everything we ship.</p>
+          <p>gnoshcodes is a small software company. The team is AI agents, each with one job. One person, gnosh, owns the company, makes the decisions and answers for everything we ship.</p>
           <p class="plain">We tell you this up front because you should know how the thing in your hand was made. If a tool lets you down, a person reads the email.</p>
         </div>
         <dl class="ledger">
@@ -250,5 +266,219 @@ a:focus-visible{outline:3px solid var(--dot);outline-offset:3px;border-radius:2p
   <span>© 2026 gnoshcodes</span>
   <span>The logo and drawings on this page were made by AI.</span>
 </footer>
+<script>
+/* The shop floor: a chore rides the belt through the agent stations, passes the person at the gate,
+   and comes out as the small orange dot that lifts the hard part. One continuous simulation, no scenes. */
+(function(){
+var cv=document.getElementById('works');if(!cv||!cv.getContext)return;
+var ctx=cv.getContext('2d'),wrap=cv.parentNode;
+var W=1730,H=390,TOP=50,BELT=300,IY=BELT-51,PI=Math.PI,TAU=PI*2;
+var WH='#FFFFFF',SOFT='rgba(255,255,255,.74)',FAINT='rgba(255,255,255,.26)',OR='#EF5E35',BRAND='#2B4BA5';
+var SX=[140,380,620,860,1100,1260],GATE=1350,BEND=1410,PV={x:1610,y:250};
+var LAB=[['A chore comes in','something eats their time'],['Pin it down','product manager'],['Draw it up','designer, architect'],['Build it','engineers'],['Try to break it','reviewer, security, tester'],['A person decides','the owner'],['A little easier','']];
+var LX=[140,380,620,860,1100,1350,1600];
+var NA=[0,1,2,3,3,0],D=[1.3,2.0,2.2,3.0,2.2,1.9],DB=4.4,MOVE=1.25,EVERY=6.5;
+var CHORES=['the paperwork','the public record','a slow evening'];
+var BL=[[-28,-38,56,18],[-28,-10,56,13],[-28,7.5,56,13],[-28,25,56,13]];
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var DISPLAY='"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif',BODY='"Instrument Sans",system-ui,sans-serif';
+
+function cl(t){return t<0?0:t>1?1:t}
+function ez(t){t=cl(t);return t*t*(3-2*t)}
+function lerp(a,b,t){return a+(b-a)*t}
+function rectPts(x0,y0,x1,y1){var c=[[x0,y0],[x1,y0],[x1,y1],[x0,y1]],o=[],s,i,a,b,u;
+  for(s=0;s<4;s++){a=c[s];b=c[(s+1)%4];for(i=0;i<5;i++){u=i/5;o.push([lerp(a[0],b[0],u),lerp(a[1],b[1],u)])}}return o}
+function linePts(x0,x1,y){var o=[],i;for(i=0;i<20;i++)o.push([lerp(x0,x1,i/19),y]);return o}
+function scribble(seed){var o=[],k;for(k=0;k<58;k++)o.push([36*Math.sin(k*.83+seed)+9*Math.sin(k*2.1+seed),30*Math.cos(k*.61+seed*2)+11*Math.sin(k*1.7)]);
+  return [o.slice(0,20),o.slice(19,39),o.slice(38,58)]}
+var BRIEF=[linePts(-34,34,-24),linePts(-34,34,0),linePts(-34,6,24)];
+var WIRE=[rectPts(-38,-48,38,48),rectPts(-28,-38,28,-20),rectPts(-28,-10,28,38)];
+function perim(u){u=((u%1)+1)%1*4;var s=Math.floor(u),f=u-s,c=[[-47,-57],[47,-57],[47,40],[-47,40]],a=c[s],b=c[(s+1)%4];return [lerp(a[0],b[0],f),lerp(a[1],b[1],f)]}
+function rr(x,y,w,h,r){ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h)}
+
+var items,owner,agents,lever,gateArm,clock,spawnT,count,cam,focus,scale=1,dpr=1,cssW=0,cssH=0;
+function reset(){
+  items=[];owner=[null,null,null,null,null,null];agents=[];lever={a:14,v:0,target:14,busy:false,dot:null};
+  gateArm=0;clock=0;spawnT=EVERY;count=0;cam=0;focus=null;
+  for(var s=0;s<6;s++)for(var i=0;i<NA[s];i++){var hx=SX[s]+(i-(NA[s]-1)/2)*26;agents.push({s:s,i:i,hx:hx,hy:132,x:hx,y:132,ph:s*1.3+i*2.1,on:false,carry:false})}
+}
+function seat(){var a=lever.a*PI/180,c=Math.cos(a),s=Math.sin(a),lx=-183,ly=-22.5;return {x:PV.x+lx*c-ly*s,y:PV.y+lx*s+ly*c}}
+function dur(it){return it.s===4&&it.bounce?DB:D[it.s]}
+function release(){var d=lever.dot;if(d&&d.mode==='on'){d.mode='gone';d.t=0;lever.target=14;lever.dot=null}}
+
+function step(it,dt){
+  it.t+=dt;var s=it.s,t=it.t,u,p,i;
+  if(it.mode==='work'){
+    if(s===3)for(i=0;i<4;i++)if(t>=i*.6+.9)it.fill[i]=Math.min(1,it.fill[i]+dt*7);
+    if(s===4){
+      it.fix=null;
+      if(!it.bounce){it.scan=cl(t/1.6);it.tick=cl((t-1.6)/.4)}
+      else{
+        if(t<1){it.scan=t/1.6}
+        else if(t<2.2){it.scan=.625;it.bug=t<2}
+        else{it.bug=false;it.scan=cl((t-2.2)/1.6);it.tick=cl((t-3.8)/.4)}
+        if(t>=1&&t<2.8){u=t<2?ez(t-1):1-ez((t-2)/.8);
+          it.fix={x:lerp(SX[3]+26,it.x,u),y:lerp(132,IY+14,u)-Math.sin(PI*u)*64,carry:t<2}}
+      }
+    }
+    if(s===5)it.stamp=ez((t-1.2)/.4);
+    if(t>=dur(it)){it.mode='wait'}
+  }
+  if(it.mode==='wait'){
+    if(s<5){if(!owner[s+1]){owner[s+1]=it;owner[s]=null;it.mode='move';it.t=0;it.from=it.x}}
+    else if(!lever.busy){lever.busy=true;owner[5]=null;it.mode='toLever';it.t=0}
+  }
+  else if(it.mode==='move'){
+    it.x=lerp(it.from,SX[s+1],ez(t/MOVE));
+    if(t>=MOVE){it.s++;it.mode='work';it.t=0;it.x=SX[it.s];if(it.s===5)release()}
+  }
+  else if(it.mode==='toLever'){
+    it.x=lerp(SX[5],BEND-12,ez(t/1.3));it.shrink=ez(t/.7);it.y=lerp(IY,BELT-17,it.shrink);
+    if(t>=1.3){it.mode='hop';it.t=0;it.hx=it.x;it.hy=it.y}
+  }
+  else if(it.mode==='hop'){
+    u=cl(t/.7);p=seat();it.x=lerp(it.hx,p.x,u);it.y=lerp(it.hy,p.y,u)-Math.sin(PI*u)*46;
+    if(u>=1){it.mode='on';it.t=0;lever.target=-9;lever.dot=it;lever.v-=30}
+  }
+  else if(it.mode==='on'||it.mode==='gone'){
+    p=seat();it.x=p.x;it.y=p.y;
+    if(it.mode==='gone'){it.r=17*(1-cl(t/.4));if(t>=.4){it.dead=true;lever.busy=false}}
+  }
+}
+
+function update(dt){
+  clock+=dt;spawnT+=dt;var i,it,ag,tx,ty,p,b,t0,u,q,k;
+  if(spawnT>=EVERY&&!owner[0]){
+    it={seed:count*1.7+.6,chore:CHORES[count%3],s:0,mode:'work',t:0,x:SX[0],y:IY,bounce:count%2===0,fill:[0,0,0,0],bug:false,tick:0,scan:null,stamp:0,shrink:0,r:17,fix:null};
+    it.scr=scribble(it.seed);count++;items.push(it);owner[0]=it;spawnT=0;
+  }
+  for(i=0;i<items.length;i++)step(items[i],dt);
+  items=items.filter(function(x){return !x.dead});
+  lever.v+=((lever.target-lever.a)*70-lever.v*9)*dt;lever.a+=lever.v*dt;
+  var up=0;for(i=0;i<items.length;i++){it=items[i];if(it.s===5&&((it.mode==='work'&&it.t>1.2)||it.mode==='wait'||(it.mode==='toLever'&&it.x<GATE+40)))up=1}
+  gateArm+=(up-gateArm)*(1-Math.exp(-dt*8));
+  k=1-Math.exp(-dt*9);
+  for(i=0;i<agents.length;i++){
+    ag=agents[i];tx=ag.hx;ty=ag.hy+Math.sin(clock*1.6+ag.ph)*1.5;ag.on=false;ag.carry=false;it=owner[ag.s];
+    if(it&&it.mode==='work'&&it.s===ag.s){
+      p=it.t/dur(it);
+      if(ag.s===1){u=-PI/2+ez(p)*TAU*1.25;tx=it.x+64*Math.cos(u);ty=IY+58*Math.sin(u);ag.on=true}
+      else if(ag.s===2){q=perim(ez(p)+ag.i*.5);tx=it.x+q[0];ty=IY+q[1];ag.on=true}
+      else if(ag.s===3){for(b=0;b<4;b++)if(b%3===ag.i){t0=b*.6;if(it.t>=t0&&it.t<t0+.9){u=(it.t-t0)/.9;ag.on=true;
+        if(u<.35){tx=SX[3]+52;ty=120}else{tx=it.x;ty=IY+BL[b][1]+BL[b][3]/2-12;ag.carry=true}}}}
+      else if(ag.s===4&&!(it.scan>=1)){u=IY-48+96*(it.scan||0);ag.on=true;
+        if(ag.i===0){tx=it.x-54;ty=u}else if(ag.i===1){tx=it.x+54;ty=u}else{tx=it.x;ty=IY-74}
+        if(it.bug)tx+=Math.sin(clock*38+ag.i)*1.6}
+    }
+    ag.x+=(tx-ag.x)*k;ag.y+=(ty-ag.y)*k;
+  }
+  var visW=cssW/scale;
+  if(reduce)cam=0;
+  else if(visW>=W)cam=(W-visW)/2;
+  else{
+    if(!focus||focus.dead||focus.mode==='gone'||(focus.mode==='on'&&focus.t>2.6))focus=items[items.length-1];
+    if(focus){tx=Math.max(0,Math.min(W-visW,focus.x-visW*.45));cam+=(tx-cam)*(1-Math.exp(-dt*2.6))}
+  }
+}
+
+function line(x0,y0,x1,y1){ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x1,y1);ctx.stroke()}
+function drawTile(it,x,y,f){
+  var s=it.s,work=it.mode==='work',p=work?cl(it.t/dur(it)):1,A,B,m=1,closeA=0,reveal=60,j,i,pts,a,b,n,inner=1;
+  if(s===0){A=it.scr;B=A;m=0;reveal=work?Math.ceil(p*60):60}
+  else if(s===1){A=it.scr;B=BRIEF;m=ez(p)}
+  else if(s===2){A=BRIEF;B=WIRE;m=ez(p);closeA=m}
+  else{A=WIRE;B=WIRE;closeA=1;inner=1-it.fill[3]}
+  ctx.save();ctx.translate(x,y);ctx.scale(f,f);ctx.lineWidth=3;ctx.lineJoin='round';ctx.lineCap='round';ctx.strokeStyle=WH;
+  for(j=0;j<3;j++){
+    n=Math.max(0,Math.min(20,reveal-j*20));if(n<2)continue;
+    ctx.globalAlpha=f*(j>0?inner:1);if(ctx.globalAlpha<.01)continue;
+    ctx.beginPath();
+    for(i=0;i<n;i++){a=A[j][i];b=B[j][i];pts=[lerp(a[0],b[0],m),lerp(a[1],b[1],m)];if(i)ctx.lineTo(pts[0],pts[1]);else ctx.moveTo(pts[0],pts[1])}
+    ctx.stroke();
+    if(closeA>0){ctx.globalAlpha*=closeA;a=A[j][19];b=B[j][19];ctx.beginPath();ctx.moveTo(lerp(a[0],b[0],m),lerp(a[1],b[1],m));a=A[j][0];b=B[j][0];ctx.lineTo(lerp(a[0],b[0],m),lerp(a[1],b[1],m));ctx.stroke()}
+  }
+  for(i=0;i<4;i++)if(it.fill[i]>0){b=BL[i];
+    if(it.bug&&i===2){ctx.globalAlpha=f;ctx.strokeStyle=OR;ctx.lineWidth=3;rr(b[0]+1.5,b[1]+1.5,b[2]-3,b[3]-3,2);ctx.stroke()}
+    else{ctx.globalAlpha=f*it.fill[i];ctx.fillStyle=WH;rr(b[0],b[1],b[2],b[3],2.5);ctx.fill()}}
+  ctx.globalAlpha=f;
+  if(s===4&&work&&it.scan!==null&&it.scan<1){ctx.strokeStyle=SOFT;ctx.lineWidth=2;a=-48+96*it.scan;line(-54,a,54,a)}
+  if(it.tick>0){a=ez(it.tick);ctx.fillStyle=WH;ctx.beginPath();ctx.arc(38,-48,11*a,0,TAU);ctx.fill();
+    ctx.strokeStyle=BRAND;ctx.lineWidth=2.8;ctx.globalAlpha=f*a;ctx.beginPath();ctx.moveTo(33,-48);ctx.lineTo(36.6,-44.2);ctx.lineTo(43.2,-52);ctx.stroke()}
+  ctx.restore();
+}
+function drawItem(it){
+  var late=it.mode==='toLever'||it.mode==='hop'||it.mode==='on'||it.mode==='gone',a;
+  if(!late){
+    drawTile(it,it.x,IY,1);
+    if(it.stamp>0){ctx.fillStyle=OR;ctx.beginPath();ctx.arc(it.x,IY,10*it.stamp,0,TAU);ctx.fill()}
+    a=it.s===0?(it.mode==='work'?cl(it.t/.8):1):it.s===1&&it.mode==='work'?cl(1-it.t/.7):0;
+    if(a>0){ctx.globalAlpha=a;ctx.fillStyle=SOFT;ctx.font='500 17px '+DISPLAY;ctx.textAlign='center';ctx.fillText(it.chore,it.x,IY-66);ctx.globalAlpha=1}
+  }else{
+    if(it.mode==='toLever'&&it.shrink<.99)drawTile(it,it.x,it.y,1-it.shrink);
+    ctx.fillStyle=OR;ctx.beginPath();ctx.arc(it.x,it.y,it.mode==='toLever'?lerp(10,17,it.shrink):Math.max(0,it.r),0,TAU);ctx.fill();
+  }
+  if(it.fix)drawAgent(it.fix.x,it.fix.y,true,it.fix.carry);
+}
+function drawAgent(x,y,on,carry){
+  if(carry){ctx.fillStyle=WH;rr(x-10,y+8,20,7,2);ctx.fill()}
+  ctx.fillStyle=on?WH:SOFT;ctx.beginPath();ctx.arc(x,y,on?7:6,0,TAU);ctx.fill();
+}
+function draw(){
+  var i,x,g,it,k=dpr*scale;
+  ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.setTransform(k,0,0,k,-cam*k,-TOP*k);ctx.lineCap='round';ctx.lineJoin='round';ctx.globalAlpha=1;
+  /* belt */
+  ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=3;line(70,BELT,BEND,BELT);
+  ctx.strokeStyle=FAINT;ctx.lineWidth=2;line(70,BELT+13,BEND,BELT+13);
+  for(x=78+(reduce?0:(clock*46)%28);x<BEND-6;x+=28)line(x,BELT+4,x-5,BELT+9);
+  ctx.beginPath();ctx.arc(70,BELT+6.5,6.5,PI/2,PI*1.5);ctx.stroke();ctx.beginPath();ctx.arc(BEND,BELT+6.5,6.5,-PI/2,PI/2);ctx.stroke();
+  /* stations */
+  for(i=1;i<5;i++){ctx.beginPath();ctx.moveTo(SX[i]-72,BELT-4);ctx.lineTo(SX[i]-72,146);ctx.quadraticCurveTo(SX[i]-72,140,SX[i]-66,140);ctx.lineTo(SX[i]+66,140);ctx.quadraticCurveTo(SX[i]+72,140,SX[i]+72,146);ctx.lineTo(SX[i]+72,BELT-4);ctx.stroke()}
+  ctx.fillStyle=SOFT;for(i=0;i<3;i++){rr(SX[3]+42,128-i*9.5,20,7,2);ctx.fill()}
+  ctx.textAlign='center';
+  for(i=0;i<7;i++){ctx.fillStyle=WH;ctx.font='700 22px '+DISPLAY;ctx.fillText(LAB[i][0],LX[i],352);
+    if(LAB[i][1]){ctx.fillStyle=SOFT;ctx.font='400 17px '+BODY;ctx.fillText(LAB[i][1],LX[i],377)}}
+  /* the person at the gate */
+  ctx.strokeStyle=WH;ctx.lineWidth=3;line(GATE,BELT-2,GATE,205);line(GATE-28,205,GATE+28,205);
+  ctx.beginPath();ctx.arc(GATE,170,11.5,0,TAU);ctx.stroke();ctx.beginPath();ctx.arc(GATE,205,20,PI,0);ctx.stroke();
+  it=owner[5];if(it&&it.mode==='work'&&it.t<1.2){ctx.strokeStyle=SOFT;ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(GATE,170,19,-PI/2,-PI/2+TAU*it.t/1.2);ctx.stroke()}
+  g=gateArm*1.38;ctx.strokeStyle=WH;ctx.lineWidth=4.5;line(GATE,249,GATE-44*Math.cos(g),249-44*Math.sin(g));
+  ctx.fillStyle=WH;ctx.beginPath();ctx.arc(GATE,249,5,0,TAU);ctx.fill();
+  /* the lever */
+  ctx.strokeStyle='rgba(255,255,255,.36)';ctx.lineWidth=3;line(1440,BELT,1712,BELT);
+  ctx.fillStyle=WH;ctx.beginPath();ctx.moveTo(PV.x,PV.y+6);ctx.lineTo(PV.x-27,BELT);ctx.lineTo(PV.x+27,BELT);ctx.closePath();ctx.fill();
+  ctx.save();ctx.translate(PV.x,PV.y);ctx.rotate(lever.a*PI/180);
+  ctx.fillStyle=WH;rr(-200,-5.5,290,11,5.5);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.17)';ctx.strokeStyle=WH;ctx.lineWidth=3;rr(8,-85,78,78,9);ctx.fill();ctx.stroke();
+  ctx.fillStyle=WH;ctx.font='500 15px '+DISPLAY;ctx.fillText('the hard',47,-48);ctx.fillText('part',47,-30);
+  ctx.restore();
+  for(i=0;i<items.length;i++)drawItem(items[i]);
+  for(i=0;i<agents.length;i++)drawAgent(agents[i].x,agents[i].y,agents[i].on,agents[i].carry);
+}
+
+function size(){
+  var w=wrap.clientWidth;if(!w)return;
+  scale=w/W;cssH=H*scale;if(w<900&&cssH<320){cssH=320;scale=cssH/H}
+  cssW=reduce?Math.max(w,Math.ceil(W*scale)):w;
+  dpr=Math.min(2,window.devicePixelRatio||1);
+  cv.style.width=cssW+'px';cv.style.height=cssH+'px';cv.width=Math.round(cssW*dpr);cv.height=Math.round(cssH*dpr);
+  var c=getComputedStyle(document.documentElement).getPropertyValue('--brand');if(c&&c.trim())BRAND=c.trim();
+  draw();
+}
+reset();
+(function pre(){for(var i=0;i<600;i++)update(1/30);if(focus)cam=Math.max(0,Math.min(Math.max(0,W-cssW/scale),focus.x-cssW/scale*.45))})();
+size();
+(function(){if(!reduce&&cssW/scale<W){focus=items[items.length-1];if(focus)cam=Math.max(0,Math.min(W-cssW/scale,focus.x-cssW/scale*.45));draw()}})();
+window.addEventListener('resize',size);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+if(reduce){wrap.className+=' still';wrap.tabIndex=0;return}
+var seen=true,last=0,raf=0;
+function frame(now){raf=0;if(!seen||document.hidden)return;var dt=last?Math.min(.05,(now-last)/1000):0;last=now;update(dt);draw();raf=requestAnimationFrame(frame)}
+function kick(){if(!raf){last=0;raf=requestAnimationFrame(frame)}}
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){seen=e[0].isIntersecting;if(seen)kick()}).observe(cv);
+document.addEventListener('visibilitychange',kick);
+kick();
+})();
+</script>
 <!--/page-->
 </body></html>
