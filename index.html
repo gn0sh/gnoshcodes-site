@@ -179,18 +179,18 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
 .made .kicker{color:var(--orange-bright)}
 .made h2{font:900 clamp(44px,6.6vw,90px)/.92 var(--display)}
 .made h2 span{display:block;color:var(--orange-bright)}
-.tape{position:relative;margin-top:76px}
-.case{position:absolute;z-index:2;width:112px;left:-6px;top:-22px;transform:rotate(90deg);filter:drop-shadow(7px -9px 8px rgba(0,0,0,.45))}
+.tape{position:relative;margin-top:40px;padding-bottom:96px}
+.case{position:absolute;z-index:2;width:112px;left:-6px;bottom:-34px;transform:rotate(90deg);filter:drop-shadow(7px -9px 8px rgba(0,0,0,.45))}
 .case svg{display:block;width:100%;height:auto}
 .case .m{transform-origin:65px 65px;transform:rotate(-90deg)}
-.steps{position:relative;counter-reset:s;display:grid;gap:30px;padding:104px 0 20px 82px}
-.steps::before{content:"";position:absolute;left:22px;top:60px;bottom:0;width:50px;border-radius:0 0 3px 3px;
+.steps{position:relative;counter-reset:s;display:grid;gap:30px;padding:20px 0 40px 82px}
+.steps::before{content:"";position:absolute;left:22px;top:0;bottom:-34px;width:50px;border-radius:3px 3px 0 0;
   background:
     linear-gradient(180deg,#0F1F3D 0 2px,transparent 2px) 0 0/19px 48px repeat-y,
     linear-gradient(180deg,rgba(15,31,61,.75) 0 1.2px,transparent 1.2px) 0 0/10px 12px repeat-y,
     linear-gradient(90deg,#DCC480 0,#F6E7B2 25%,#FBF0C6 50%,#F2DE9E 80%,#CCB16B 100%);
   box-shadow:8px 10px 12px rgba(0,0,0,.45)}
-.steps::after{content:"";position:absolute;left:14px;bottom:-12px;width:66px;height:14px;border-radius:3px;background:linear-gradient(180deg,#DDE2E8,#8D97A5);box-shadow:5px 7px 7px rgba(0,0,0,.45)}
+.steps::after{content:"";position:absolute;left:14px;top:-12px;width:66px;height:14px;border-radius:3px;background:linear-gradient(180deg,#DDE2E8,#8D97A5);box-shadow:5px 7px 7px rgba(0,0,0,.45)}
 .steps li{position:relative;counter-increment:s}
 .steps li::before{content:counter(s);position:absolute;left:-60px;top:-3px;width:50px;text-align:center;padding-left:14px;font:900 31px/1 var(--display);color:var(--navy-800)}
 .steps li:last-child::before{color:#B8430F}
@@ -198,16 +198,16 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
 .steps li:last-child h3{color:var(--orange-bright)}
 .steps p{font-size:16px;line-height:1.5;color:#E4DAC4}
 @media(min-width:1000px){
-  .tape{margin-top:112px;padding-left:150px}
-  .case{width:140px;left:-12px;top:-66px;transform:none;filter:drop-shadow(10px 14px 10px rgba(0,0,0,.45))}
+  .tape{margin-top:112px;padding-left:20px;padding-right:150px;padding-bottom:0}
+  .case{width:140px;left:auto;right:-12px;bottom:auto;top:-66px;transform:none;filter:drop-shadow(10px 14px 10px rgba(0,0,0,.45))}
   .case .m{transform:none}
   .steps{grid-template-columns:repeat(6,1fr);gap:0;padding:104px 0 0}
-  .steps::before{left:-44px;right:-6px;top:8px;bottom:auto;width:auto;height:66px;border-radius:0 3px 3px 0;
+  .steps::before{left:-6px;right:-44px;top:8px;bottom:auto;width:auto;height:66px;border-radius:3px 0 0 3px;
     background:
-      linear-gradient(90deg,#0F1F3D 0 2px,transparent 2px) 44px 0/calc((100% - 38px)/6) 24px repeat-x,
-      linear-gradient(90deg,rgba(15,31,61,.75) 0 1.2px,transparent 1.2px) 44px 0/calc((100% - 38px)/60) 12px repeat-x,
+      linear-gradient(90deg,#0F1F3D 0 2px,transparent 2px) 6px 0/calc((100% - 50px)/6) 24px repeat-x,
+      linear-gradient(90deg,rgba(15,31,61,.75) 0 1.2px,transparent 1.2px) 6px 0/calc((100% - 50px)/60) 12px repeat-x,
       linear-gradient(180deg,#DCC480 0,#F6E7B2 20%,#FBF0C6 48%,#F2DE9E 80%,#C6A962 100%)}
-  .steps::after{left:auto;right:-20px;top:0;bottom:auto;width:15px;height:84px}
+  .steps::after{left:-20px;right:auto;top:0;bottom:auto;width:15px;height:84px}
   .steps li{padding-right:22px}
   .steps h3{font-size:25px;min-height:2em;display:flex;align-items:flex-end}
   .steps li::before{left:8px;top:-72px;width:auto;padding:0;font-size:40px;text-align:left}
@@ -539,7 +539,7 @@ h1 .easier{color:var(--orange);text-shadow:.012em .012em 0 var(--navy-800),.024e
           <svg viewBox="0 0 140 140" focusable="false">
             <rect x="10" y="11" width="122" height="122" rx="27" fill="#7E2E08"/>
             <rect x="4" y="4" width="122" height="122" rx="27" fill="url(#gOrange)"/>
-            <rect x="112" y="68" width="22" height="58" rx="3" fill="#081226"/>
+            <rect x="-4" y="68" width="22" height="58" rx="3" fill="#081226"/>
             <rect x="76" y="-4" width="34" height="15" rx="5" fill="#16284D"/>
             <g class="m"><g transform="translate(27 29) scale(1.180)"><use href="#hook" fill="#F5EBD4"/><use href="#ball" fill="#0F1F3D"/></g></g>
           </svg>
