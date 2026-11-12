@@ -96,11 +96,17 @@ img{max-width:100%;height:auto}
 /* ---------- paper tag ---------- */
 .tag{position:relative;padding:60px 24px 26px;color:var(--navy-800);background:var(--grain),linear-gradient(180deg,#F8EEDA 0,#EFE1C0 100%);
   clip-path:polygon(34px 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%,0 34px)}
-.tagwrap{position:relative;filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(9px 14px 11px rgba(0,0,0,.45));transform:rotate(var(--r,0deg));transform-origin:50% -52px}
+.tagwrap{position:relative;z-index:3;filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(9px 14px 11px rgba(0,0,0,.45));transform:rotate(var(--r,0deg));transform-origin:50% calc(-1*var(--hy))}
 .eyelet{position:absolute;left:50%;top:14px;width:28px;height:28px;margin-left:-14px;border-radius:50%;
   background:radial-gradient(circle,#0c1a36 0 5px,#b84714 5.5px 12.5px,rgba(0,0,0,0) 13px)}
 .orange .eyelet{background:radial-gradient(circle,#7a2c08 0 5px,#16284D 5.5px 12.5px,rgba(0,0,0,0) 13px)}
-.string{position:absolute;left:50%;top:-50px;width:3px;height:78px;margin-left:-1.5px;border-radius:2px;background:var(--twine)}
+/* twine loop on a hook: it goes through the eyelet and over the hook. --hy is how far the hook's cradle sits above the tag's top edge,
+   --hb the thickness of the hook there, --sa the lean that brings both strands to the eyelet. The far strand is hidden behind the hook. */
+.string{position:absolute;left:50%;top:calc(-1*var(--hy) - 6px);width:10px;height:6px;margin-left:-5px;z-index:3;
+  box-sizing:border-box;border:3px solid #DCCA9C;border-bottom:0;border-radius:5px 5px 0 0}
+.string::before,.string::after{content:"";position:absolute;top:2px;width:3px;border-radius:0 0 2px 2px;background:var(--twine);transform-origin:50% 0}
+.string::before{right:-3px;top:calc(3px + var(--hb));height:calc(var(--hy) - var(--hb) + 1px);transform:rotate(var(--sa))}
+.string::after{left:-3px;height:calc(var(--hy) + 30px);transform:rotate(calc(-1*var(--sa)))}
 .stamp{display:inline-block;font:900 16px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:7px 11px 6px;border:2.5px solid currentColor;border-radius:5px;transform:rotate(-2deg);color:var(--orange-deep)}
 @keyframes swing{0%{transform:rotate(var(--r,0deg))}18%{transform:rotate(calc(var(--r,0deg) + 2.6deg))}42%{transform:rotate(calc(var(--r,0deg) - 1.9deg))}64%{transform:rotate(calc(var(--r,0deg) + 1deg))}84%{transform:rotate(calc(var(--r,0deg) - .4deg))}100%{transform:rotate(var(--r,0deg))}}
 
@@ -126,9 +132,15 @@ img{max-width:100%;height:auto}
   background:linear-gradient(180deg,#24407E,#1A2F60);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 3px 0 #040914}
 
 /* the sample invoice, hanging from a hook by its clip */
-.hangdoc{position:relative;width:min(540px,100%);margin:74px auto 0;transform:rotate(var(--r,1.1deg));transform-origin:50% -60px}
-.hangdoc.in{animation:swing 1.6s ease-in-out}
-.hangdoc .clip{position:absolute;left:50%;top:-128px;width:204px;height:auto;margin-left:-102px;z-index:2;filter:drop-shadow(4px 7px 5px rgba(0,0,0,.45))}
+.hangdoc{position:relative;width:min(540px,100%);margin:112px auto 0}
+/* the hook stays on the board; the clip, sheet and caption swing from where the clip's eye rests in it.
+   The hook goes in behind the clip and its near (tip) half is drawn again over it, so it reads as passing through the eye. */
+.hangdoc .swing{position:relative;z-index:1;transform:rotate(var(--r,1.1deg));transform-origin:calc(50% - 3px) -69px}
+.hangdoc.in .swing{animation:swing 1.6s ease-in-out}
+.hangdoc .onhook{position:absolute;left:50%;top:-166px;width:180px;height:auto;margin-left:-90px;pointer-events:none;filter:drop-shadow(4px 6px 4px rgba(0,0,0,.5))}
+.hangdoc .onhook.near{z-index:2;filter:none}
+.onhook.near use{filter:drop-shadow(1.2px 2px 1.2px rgba(0,0,0,.5))}
+.hangdoc .clip{position:absolute;left:50%;top:-88px;width:180px;height:auto;margin-left:-90px;z-index:2;filter:drop-shadow(4px 7px 5px rgba(0,0,0,.45))}
 .hangdoc .sheet::before{content:"";position:absolute;z-index:-1;inset:6px -12px -10px 10px;background:var(--grain),#EADCB8;transform:rotate(-3deg);border-radius:2px;box-shadow:10px 16px 18px rgba(0,0,0,.45)}
 .hangdoc .sheet{position:relative;isolation:isolate;border-radius:2px;box-shadow:0 1px 0 #d8d2c4,14px 26px 34px rgba(0,0,0,.55)}
 .hangdoc figcaption{margin-top:40px}
@@ -136,7 +148,7 @@ img{max-width:100%;height:auto}
 .pdf a{color:var(--a);text-decoration:underline}
 @media(min-width:1000px){
   .hero{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:56px;padding:56px 0 112px}
-  .hangdoc{margin-top:96px}
+  .hangdoc{margin-top:134px}
 }
 
 /* ---------- your look: the style bench ---------- */
@@ -240,10 +252,10 @@ img{max-width:100%;height:auto}
 .tags{display:grid;gap:100px 30px;margin-top:104px}
 @media(min-width:760px){.tags{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1120px){.tags{grid-template-columns:repeat(3,1fr)}}
-.tags>li{position:relative;display:flex}
+.tags>li{position:relative;display:flex;--hy:30px;--hb:11.2px;--sa:3.4deg}
 .tags .tagwrap{flex:1;display:flex}
 .tags .tag{flex:1}
-.tags .tophook{position:absolute;left:50%;top:-88px;width:72px;height:72px;margin-left:-30.5px;z-index:2;filter:drop-shadow(4px 6px 4px rgba(60,15,0,.6))}
+.tags .tophook{position:absolute;left:50%;top:-88px;width:72px;height:72px;margin-left:-28.7px;z-index:2;filter:drop-shadow(4px 6px 4px rgba(60,15,0,.6))}
 .tags .tagwrap{filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(10px 16px 12px rgba(60,15,0,.55))}
 .tags li.in .tagwrap{animation:swing 1.5s ease-in-out}
 .tags .tag{padding:56px 26px 30px;min-height:100%}
@@ -318,8 +330,8 @@ img{max-width:100%;height:auto}
 
 .helpdesk{display:grid;gap:44px;padding:124px 0 104px}
 @media(min-width:1000px){.helpdesk{grid-template-columns:1.05fr 1fr;gap:64px;align-items:start}}
-.hang{position:relative}
-.hang .tophook{position:absolute;left:50%;top:-112px;width:80px;height:80px;margin-left:-34px;z-index:2;filter:drop-shadow(4px 6px 4px rgba(0,0,0,.5))}
+.hang{position:relative;--hy:47.5px;--hb:12.5px;--sa:2.6deg}
+.hang .tophook{position:absolute;left:50%;top:-112px;width:80px;height:80px;margin-left:-31.9px;z-index:2;filter:drop-shadow(4px 6px 4px rgba(0,0,0,.5))}
 .hang.in .tagwrap{animation:swing 1.5s ease-in-out}
 .hang .tag{padding:64px 24px 34px;text-align:center}
 @media(min-width:700px){.hang .tag{padding:70px 44px 44px}}
@@ -421,7 +433,7 @@ img{max-width:100%;height:auto}
   .hero{padding-top:34px;padding-bottom:84px}
   .look,.choose,.pricing,.subs{padding-top:64px;padding-bottom:84px}
   .made,.apart,.last{padding-top:64px;padding-bottom:84px}
-  .tagwrap,.hangdoc{--r:0deg!important}
+  .tagwrap,.hangdoc .swing{--r:0deg!important}
   .cabinet{margin-left:6px;margin-right:6px}
   .helpdesk{padding-bottom:84px}
 }
