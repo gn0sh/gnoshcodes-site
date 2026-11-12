@@ -1,0 +1,86 @@
+/* Sample quote and invoice on the Quick Invoice product page.
+   Generated from the app's own print styles (quick-invoice src/lib/pdfStyled.ts and pdfStyles.ts, version 1.2),
+   scoped to .pdf, with every px turned into a multiple of --u so the sheet scales with its box. Don't edit by hand. */
+.sheet{container-type:inline-size}
+.pdf{--u:1px;--a:#0E6A6B;--t:#EEF5F5;box-sizing:border-box;width:100%;aspect-ratio:612/792;padding:calc(40*var(--u));background:#fff;text-align:left;overflow:hidden}
+@supports (width:1cqw){.pdf{--u:calc(100cqw/612)}}
+.pdf *{box-sizing:content-box}
+.pdf table{border-spacing:0}
+.pdf{font-family: -apple-system, Helvetica, Arial, sans-serif; color: #101828; font-size: calc(11*var(--u)); line-height: 1.35; margin: 0;}
+.pdf .header{display: flex; justify-content: space-between; align-items: flex-start; gap: calc(24*var(--u)); margin-bottom: calc(10*var(--u));}
+.pdf .logo{display: block; max-height: calc(64*var(--u)); max-width: calc(220*var(--u)); margin-bottom: calc(6*var(--u));}
+.pdf .biz-name{font-size: calc(20*var(--u)); font-weight: 700; margin-bottom: calc(3*var(--u)); line-height: 1.15;}
+.pdf .contact{color: #475467; line-height: 1.35;}
+.pdf .ids{margin-top: calc(4*var(--u)); font-size: calc(10.5*var(--u)); font-weight: 600; line-height: 1.35; color: #101828;}
+.pdf .doc{text-align: right; flex: 0 1 auto; max-width: 66%;}
+.pdf .from,.pdf .bill-to,.pdf .notes,.pdf .accept,.pdf td,.pdf .photos-title{overflow-wrap: anywhere;}
+.pdf .title{font-size: calc(28*var(--u)); font-weight: 700; color: var(--a); letter-spacing: calc(1*var(--u)); line-height: 1.1;}
+.pdf .meta{margin-top: calc(5*var(--u)); line-height: 1.45;}
+.pdf .meta strong:first-child{overflow-wrap: anywhere;}
+.pdf .label{font-size: calc(9.5*var(--u)); text-transform: uppercase; letter-spacing: calc(0.8*var(--u)); color: #475467; margin-bottom: calc(2*var(--u)); font-weight: 600;}
+.pdf .parties{display: flex; gap: calc(32*var(--u)); margin-bottom: calc(10*var(--u));}
+.pdf .bill-to{flex: 1; line-height: 1.35;}
+.pdf table{width: 100%; border-collapse: collapse;}
+.pdf th{text-align: left; font-size: calc(9.5*var(--u)); text-transform: uppercase; letter-spacing: calc(0.8*var(--u)); color: #475467; border-bottom: calc(1.5*var(--u)) solid #101828; padding: calc(5*var(--u)) calc(4*var(--u)); font-weight: 700;}
+.pdf td{padding: calc(3.5*var(--u)) calc(4*var(--u)); border-bottom: calc(1*var(--u)) solid #E4E7EC; vertical-align: top;}
+.pdf .num{text-align: right; white-space: nowrap;}
+.pdf th.num{text-align: right;}
+.pdf .lines{margin-bottom: calc(2*var(--u));}
+.pdf .totals{float: right; width: calc(292*var(--u)); margin: calc(4*var(--u)) 0 0 calc(22*var(--u));}
+.pdf .totals.wide{width: calc(320*var(--u));}
+.pdf .totals td{border: none; padding: calc(1.5*var(--u)) calc(4*var(--u));}
+.pdf .total td{font-weight: 700; border-top: calc(1*var(--u)) solid #D0D5DD; padding-top: calc(5*var(--u));}
+.pdf .pay-sub{font-size: calc(10*var(--u)); color: #475467; margin-top: calc(1*var(--u));}
+.pdf .grand td{font-size: calc(16*var(--u)); font-weight: 700; border-top: calc(1.5*var(--u)) solid #101828; padding-top: calc(6*var(--u)); padding-bottom: calc(4*var(--u));}
+.pdf .grand td.num{color: var(--a);}
+.pdf .grand-rule td{padding: 0; height: calc(5*var(--u)); border-top: calc(1.5*var(--u)) solid var(--a); border-bottom: calc(0.75*var(--u)) solid var(--a);}
+.pdf .deposit td{font-weight: 700; color: var(--a); padding-top: calc(8*var(--u));}
+.pdf .notes{margin-top: calc(8*var(--u)); line-height: 1.35;}
+.pdf .accept{margin-top: calc(12*var(--u)); line-height: 1.5; font-weight: 600;}
+.pdf .accept,.pdf .made-with,.pdf .photos{clear: both;}
+.pdf .notes + .payrow{clear: both;}
+.pdf .notes + .payrow > .notes{display: inline-block; vertical-align: top; max-width: calc(50% - calc(13*var(--u)));}
+.pdf .notes + .payrow > .notes:first-child{margin-right: calc(24*var(--u));}
+.pdf .made-with{margin-top: calc(12*var(--u));}
+.pdf .paylink{margin-top: calc(2*var(--u));}
+.pdf .paylink a{color: var(--a); text-decoration: underline; word-break: break-all;}
+.pdf .stampwrap{min-height: calc(88*var(--u)); padding: calc(2*var(--u)) 0 calc(12*var(--u)) calc(10*var(--u));}
+.pdf .paid,.pdf .void{display: inline-block; max-width: calc(190*var(--u)); margin-top: calc(16*var(--u)); border: calc(2.5*var(--u)) solid #15803D; color: #15803D; border-radius: calc(8*var(--u)); padding: calc(2.5*var(--u)); font-weight: 800; font-size: calc(22*var(--u)); letter-spacing: calc(4*var(--u)); line-height: 1.15; text-align: center; transform: rotate(-8deg);}
+.pdf .ring{display: block; border: calc(1*var(--u)) solid #15803D; border-radius: calc(5*var(--u)); padding: calc(4*var(--u)) calc(10*var(--u)); text-indent: calc(4*var(--u));}
+.pdf .paid small,.pdf .void small{display: block; font-size: calc(11*var(--u)); font-weight: 700; letter-spacing: calc(0.4*var(--u)); text-indent: 0; overflow-wrap: anywhere;}
+.pdf .void,.pdf .void .ring{border-color: #B91C1C; color: #B91C1C;}
+.pdf .made-with{margin-top: calc(32*var(--u)); text-align: center; font-size: calc(9*var(--u)); line-height: calc(12*var(--u)); color: #6b7280;}
+.pdf.s-classic,.bench:has(#st-classic:checked) .pdf{font-family: ui-serif, Georgia, serif;}
+.pdf.s-classic .header,.bench:has(#st-classic:checked) .pdf .header{position: relative; padding-bottom: calc(8*var(--u)); border-bottom: calc(3*var(--u)) solid var(--a); margin-bottom: calc(13*var(--u));}
+.pdf.s-classic .header::after,.bench:has(#st-classic:checked) .pdf .header::after{content: ""; position: absolute; left: 0; right: 0; bottom: calc(-6*var(--u)); border-bottom: calc(1*var(--u)) solid var(--a);}
+.pdf.s-classic .biz-name,.bench:has(#st-classic:checked) .pdf .biz-name{font-size: calc(23*var(--u)); letter-spacing: calc(-0.2*var(--u));}
+.pdf.s-classic .title,.bench:has(#st-classic:checked) .pdf .title{font-size: calc(15*var(--u)); letter-spacing: calc(5*var(--u));}
+.pdf.s-classic .meta strong:first-child,.bench:has(#st-classic:checked) .pdf .meta strong:first-child{font-size: calc(17*var(--u));}
+.pdf.s-classic .label,.pdf.s-classic th,.bench:has(#st-classic:checked) .pdf .label,.bench:has(#st-classic:checked) .pdf th{letter-spacing: calc(1.2*var(--u));}
+.pdf.s-classic th,.bench:has(#st-classic:checked) .pdf th{border-top: calc(1*var(--u)) solid #101828; border-bottom: calc(1*var(--u)) solid #101828;}
+.pdf.s-classic .grand td,.bench:has(#st-classic:checked) .pdf .grand td{border-top: calc(1*var(--u)) solid #101828;}
+.pdf.s-classic .grand td.num,.bench:has(#st-classic:checked) .pdf .grand td.num{color: #101828;}
+.pdf.s-classic .grand-rule td,.bench:has(#st-classic:checked) .pdf .grand-rule td{border-color: #101828;}
+.pdf.s-modern .header,.bench:has(#st-modern:checked) .pdf .header{border-top: calc(4*var(--u)) solid var(--a); padding-top: calc(9*var(--u)); margin-bottom: calc(10*var(--u));}
+.pdf.s-modern .title,.bench:has(#st-modern:checked) .pdf .title{font-size: calc(11*var(--u)); letter-spacing: calc(2.6*var(--u));}
+.pdf.s-modern .meta,.bench:has(#st-modern:checked) .pdf .meta{margin-top: calc(2*var(--u));}
+.pdf.s-modern .meta strong:first-child,.bench:has(#st-modern:checked) .pdf .meta strong:first-child{font-size: calc(24*var(--u)); font-weight: 700; letter-spacing: calc(-0.4*var(--u)); line-height: 1.3;}
+.pdf.s-modern .parties,.bench:has(#st-modern:checked) .pdf .parties{background: var(--t); border-radius: calc(8*var(--u)); padding: calc(6*var(--u)) calc(12*var(--u)); margin-bottom: calc(9*var(--u));}
+.pdf.s-modern .label,.bench:has(#st-modern:checked) .pdf .label{color: var(--a); font-weight: 700;}
+.pdf.s-bold .header,.bench:has(#st-bold:checked) .pdf .header{border-bottom: calc(3*var(--u)) solid #101828; padding-bottom: calc(8*var(--u));}
+.pdf.s-bold .biz-name,.bench:has(#st-bold:checked) .pdf .biz-name{font-size: calc(26*var(--u)); font-weight: 800; letter-spacing: calc(-0.5*var(--u));}
+.pdf.s-bold .title,.bench:has(#st-bold:checked) .pdf .title{display: inline-block; background: var(--a); color: #fff; font-size: calc(19*var(--u)); font-weight: 800; letter-spacing: calc(2.5*var(--u)); padding: calc(5*var(--u)) calc(10*var(--u)) calc(5*var(--u)) calc(13*var(--u));}
+.pdf.s-bold .label,.bench:has(#st-bold:checked) .pdf .label{color: var(--a); font-weight: 800;}
+.pdf.s-bold th,.bench:has(#st-bold:checked) .pdf th{background: var(--a); color: #fff; border: 0; padding: calc(5*var(--u)) calc(8*var(--u)); font-weight: 800;}
+.pdf.s-bold td,.bench:has(#st-bold:checked) .pdf td{padding-left: calc(8*var(--u)); padding-right: calc(8*var(--u));}
+.pdf.s-bold .grand td,.pdf.s-bold .grand td.num,.bench:has(#st-bold:checked) .pdf .grand td,.bench:has(#st-bold:checked) .pdf .grand td.num{background: var(--a); color: #fff; border: 0; font-weight: 800; padding: calc(6*var(--u)) calc(8*var(--u));}
+.pdf.s-bold .grand-rule td,.bench:has(#st-bold:checked) .pdf .grand-rule td{padding: 0; height: calc(5*var(--u)); border-top: calc(2*var(--u)) solid #fff; border-bottom: calc(2*var(--u)) solid var(--a);}
+.pdf.s-bold .paid,.pdf.s-bold .void,.bench:has(#st-bold:checked) .pdf .paid,.bench:has(#st-bold:checked) .pdf .void{letter-spacing: calc(5*var(--u));}
+.pdf.s-bold .ring,.bench:has(#st-bold:checked) .pdf .ring{text-indent: calc(5*var(--u));}
+.pdf.c-teal,.bench:has(#co-teal:checked) .pdf{--a:#0E6A6B;--t:#EEF5F5}
+.pdf.c-navy,.bench:has(#co-navy:checked) .pdf{--a:#1F3B73;--t:#EFF1F5}
+.pdf.c-blue,.bench:has(#co-blue:checked) .pdf{--a:#1F56C4;--t:#EFF3FB}
+.pdf.c-green,.bench:has(#co-green:checked) .pdf{--a:#23693F;--t:#F0F5F2}
+.pdf.c-brick,.bench:has(#co-brick:checked) .pdf{--a:#A62B1F;--t:#F9F0EF}
+.pdf.c-copper,.bench:has(#co-copper:checked) .pdf{--a:#A8480F;--t:#F9F2EE}
+.pdf.c-graphite,.bench:has(#co-graphite:checked) .pdf{--a:#30343B;--t:#F1F1F1}
