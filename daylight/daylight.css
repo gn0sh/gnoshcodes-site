@@ -33,3 +33,4 @@
 .last .err{margin:40px auto 0;max-width:34em;font-size:16.5px;line-height:1.55}
 .last .err a{font-weight:700;color:#FFC79E;text-decoration-thickness:2px;text-underline-offset:3px;overflow-wrap:anywhere}
 .last .links{margin-top:18px}
+@media (prefers-reduced-motion:reduce){.lamp .glow{animation:none}}
