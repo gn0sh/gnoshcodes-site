@@ -1,0 +1,35 @@
+/* Daylight product page on gnoshcodes.com.
+   The shared pieces (tokens, fascia, pegboard, cabinet, flow, plain, footer) come from ../quick-invoice/qi.css,
+   which this page loads first. Only what this page adds is here. */
+
+/* the hook-and-sun mark in the hero chip, on a cream tile like the app icon */
+.appchip svg{display:block;flex:none;width:68px;height:68px;padding:7px;border-radius:16px;background:var(--cream);
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.3),0 8px 16px rgba(0,0,0,.5)}
+
+/* the one button on the page */
+.btn.lg{min-height:62px;font-size:clamp(23px,2.4vw,27px);letter-spacing:.04em;padding:15px 26px;border-radius:10px}
+
+/* the lantern from the home page pegboard, hanging on its hook */
+.lamp{position:relative;width:min(300px,62vw);margin:10px auto 0}
+.lamp svg{display:block;width:100%;height:auto;overflow:visible}
+.lamp .thing{filter:drop-shadow(10px 16px 10px rgba(0,0,0,.48))}
+.lamp .onhook{position:absolute;inset:0;pointer-events:none;filter:drop-shadow(4px 6px 4px rgba(0,0,0,.5))}
+.lamp .glow{position:absolute;left:50%;top:60%;width:190%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,205,120,.55) 0,rgba(255,180,80,.22) 32%,rgba(255,170,70,0) 66%);
+  animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.75}50%{opacity:1}}
+@media(min-width:1000px){
+  .hero{grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr)}
+  .lamp{width:min(360px,100%);margin-top:0}
+}
+
+/* the drawer that says what is missing: same drawer, dashed label plate */
+.drawer.notyet h3{border-style:dashed;border-color:var(--orange-deep);box-shadow:none}
+
+/* who runs it */
+.who .plain h3{max-width:8em}
+
+/* closing board: the error line under the button */
+.last .err{margin:40px auto 0;max-width:34em;font-size:16.5px;line-height:1.55}
+.last .err a{font-weight:700;color:#FFC79E;text-decoration-thickness:2px;text-underline-offset:3px;overflow-wrap:anywhere}
+.last .links{margin-top:18px}
