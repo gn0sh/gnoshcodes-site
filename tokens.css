@@ -1,0 +1,127 @@
+/* gnoshcodes house tokens: the one copy, loaded first by every page on gnoshcodes.com.
+   Synced from the gnoshcodes design system at commit e80c4d3 (house layer and foundations).
+   Values here must match the design system; change them there first.
+   Left out until a page needs them: the four status colors and the type classes (.label, .small, .kicker
+   and others), whose names clash with this site's own classes.
+
+   How page CSS reads these:
+   - Role names (--ground, --surface, --ink, --accent-ink, --action, --link-*, --focus) on the cream pages.
+   - House objects (--tag, --on-tag, --on-tag-accent, --board, --twine-cord) for tags, pegboards and twine.
+   - The brand scale (--navy-*, --cream, --orange*) inside the navy sections (drawers, the "made" band,
+     boards, footer). They keep fixed colors until they carry data-theme="dark", a later step, because that
+     also changes the focus ring there. */
+:root, [data-theme="light"] {
+  --navy-950: #081226;
+  --navy-900: #0b1730;
+  --navy-800: #0f1f3d;
+  --navy-700: #16284d;
+  --navy-600: #1b2a52;
+  --orange: #d2561b;
+  --orange-bright: #e8702a;
+  --orange-deep: #a53e10;
+  --cream: #f5ebd4;
+  --paper: #f1e3c0;
+  --paper-edge: #cdb98c;
+  --ground: var(--cream);
+  --surface: #fbf4e2;
+  --surface-sunk: var(--paper);
+  --line: var(--paper-edge);
+  --line-strong: var(--navy-800);
+  --ink: var(--navy-800);
+  --ink-muted: #3d4756;
+  --accent: var(--orange);
+  --accent-ink: var(--orange-deep);
+  --accent-display: #c24a14;
+  --action: var(--navy-800);
+  --action-hover: var(--navy-600);
+  --on-action: var(--cream);
+  --on-action-accent: var(--orange-bright);
+  --link: var(--ink);
+  --link-underline: var(--accent);
+  --link-hover: var(--accent-ink);
+  --link-visited: #5c3f7a;
+  --focus: var(--orange-deep);
+  --focus-halo: #ffffff;
+  --tag: var(--cream);
+  --tag-edge: var(--paper-edge);
+  --on-tag: var(--navy-800);
+  --on-tag-accent: var(--orange-deep);
+  --board: #14254b;
+  --board-hole: #040914;
+  --board-accent: #c44f18;
+  --twine: #e9d9b0;
+  --twine-shade: #b59b6a;
+  --shadow-key: 0 4px 0 #040914, 0 10px 14px rgba(8,18,38,.28);
+  --shadow-key-hover: 0 6px 0 #040914, 0 14px 18px rgba(8,18,38,.3);
+  --shadow-key-pressed: 0 1px 0 #040914, 0 2px 4px rgba(8,18,38,.3);
+  --shadow-card: inset 0 0 0 1.5px rgba(15,31,61,.28);
+  --shadow-paper: 0 2px 0 #cdb98c, 8px 12px 16px rgba(0,0,0,.4);
+}
+[data-theme="dark"] {
+  --ground: var(--navy-800);
+  --surface: var(--navy-700);
+  --surface-sunk: var(--navy-950);
+  --line: #21386d;
+  --line-strong: var(--paper-edge);
+  --ink: var(--cream);
+  --ink-muted: #d9cfb8;
+  --accent: var(--orange-bright);
+  --accent-ink: var(--orange-bright);
+  --accent-display: var(--orange-bright);
+  --action: var(--cream);
+  --action-hover: #fff8e6;
+  --on-action: var(--navy-800);
+  --on-action-accent: var(--orange-deep);
+  --link: var(--ink);
+  --link-underline: var(--accent);
+  --link-hover: var(--accent-ink);
+  --link-visited: #c9b0ec;
+  --focus: var(--orange-bright);
+  --focus-halo: var(--navy-950);
+  --tag: var(--cream);
+  --tag-edge: var(--paper-edge);
+  --on-tag: var(--navy-800);
+  --on-tag-accent: var(--orange-deep);
+  --shadow-key: 0 4px 0 #8f7c52, 0 10px 14px rgba(0,0,0,.35);
+  --shadow-key-hover: 0 6px 0 #8f7c52, 0 14px 18px rgba(0,0,0,.4);
+  --shadow-key-pressed: 0 1px 0 #8f7c52, 0 2px 4px rgba(0,0,0,.35);
+  --shadow-card: inset 0 1px 0 rgba(255,255,255,.16), 0 4px 0 #03070f, 0 10px 12px rgba(0,0,0,.45);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+  --tap-min: 44px;
+  --control-height: 48px;
+  --rule: 2.5px;
+  --focus-width: 3px;
+  --tag-chamfer: 34px;
+  --page-max: 1280px;
+  --measure: 34em;
+  --duration-press: 120ms;
+  --duration-move: 200ms;
+  --duration-settle: 300ms;
+  --ease-settle: cubic-bezier(.3,1.5,.5,1);
+  --ease-plain: ease-out;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-text: "Bitter", Georgia, serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+:root {
+  /* house extras this site uses that the system has not named yet */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0 0.05  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  --wood: linear-gradient(180deg,#CE9354 0,#B5793F 40%,#8F5B2B 100%);
+  --twine-cord: repeating-linear-gradient(180deg,var(--twine) 0 3px,var(--twine-shade) 3px 6px);
+}
