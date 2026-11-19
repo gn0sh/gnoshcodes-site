@@ -93,7 +93,7 @@ h1 .easier{color:var(--accent);text-shadow:.012em .012em 0 var(--ink),.024em .02
 .talker .tkhook,.talker .tkstring,.talker .eyelet{display:none}
 .talker h2{font:900 clamp(25px,2.5vw,33px)/1 var(--font-display);letter-spacing:.005em;color:var(--on-tag)}
 .tools{display:grid;gap:52px 30px;grid-template-columns:1fr}
-@media(min-width:900px){.tools{grid-template-columns:repeat(3,1fr);align-items:start}.talker{padding:20px 24px 22px}.wall{padding-top:40px}}
+@media(min-width:900px){.tools{grid-template-columns:repeat(2,1fr);align-items:start}.talker{padding:20px 24px 22px}.wall{padding-top:40px}}
 @media(min-width:1200px){.wall{grid-template-columns:218px 1fr;gap:34px}
   .talker{position:relative;margin-top:168px;padding:54px 22px 28px;border-radius:0;box-shadow:none;
     clip-path:none;filter:drop-shadow(0 1.5px 0 #b9a377) drop-shadow(9px 14px 11px rgba(0,0,0,.45));transform:rotate(.5deg);transform-origin:50% -103px;--hy:103px;--hb:12.6px;--sa:1.5deg}
@@ -321,6 +321,9 @@ h1 .easier{color:var(--accent);text-shadow:.012em .012em 0 var(--ink),.024em .02
     <linearGradient id="gPaper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFAEC"/><stop offset="1" stop-color="#EADCB8"/></linearGradient>
     <radialGradient id="gGlass" cx=".5" cy=".55" r=".65"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".3" stop-color="#FFF1BC"/><stop offset=".75" stop-color="#FBC35A"/><stop offset="1" stop-color="#E08A24"/></radialGradient>
     <radialGradient id="gRivet" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#B9C1CB"/><stop offset="1" stop-color="#4B5565"/></radialGradient>
+    <linearGradient id="gNews" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#78551E" stop-opacity=".42"/><stop offset=".045" stop-color="#fff" stop-opacity=".5"/><stop offset=".13" stop-color="#fff" stop-opacity="0"/><stop offset=".74" stop-color="#78551E" stop-opacity="0"/><stop offset="1" stop-color="#78551E" stop-opacity=".24"/></linearGradient>
+    <linearGradient id="gCrease" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".42" stop-color="#fff" stop-opacity=".7"/><stop offset=".52" stop-color="#5A3C14" stop-opacity=".42"/><stop offset="1" stop-color="#5A3C14" stop-opacity="0"/></linearGradient>
+    <linearGradient id="gFlap" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFFDF4"/><stop offset=".45" stop-color="#F3E7C8"/><stop offset="1" stop-color="#CDBB8E"/></linearGradient>
     <path id="gearPath" d="M-11.4 -72.1L-8.2 -91.6L8.2 -91.6L11.4 -72.1L26.2 -68.2L38.7 -83.4L52.9 -75.3L45.9 -56.7L56.7 -45.9L75.3 -52.9L83.4 -38.7L68.2 -26.2L72.1 -11.4L91.6 -8.2L91.6 8.2L72.1 11.4L68.2 26.2L83.4 38.7L75.3 52.9L56.7 45.9L45.9 56.7L52.9 75.3L38.7 83.4L26.2 68.2L11.4 72.1L8.2 91.6L-8.2 91.6L-11.4 72.1L-26.2 68.2L-38.7 83.4L-52.9 75.3L-45.9 56.7L-56.7 45.9L-75.3 52.9L-83.4 38.7L-68.2 26.2L-72.1 11.4L-91.6 8.2L-91.6 -8.2L-72.1 -11.4L-68.2 -26.2L-83.4 -38.7L-75.3 -52.9L-56.7 -45.9L-45.9 -56.7L-52.9 -75.3L-38.7 -83.4L-26.2 -68.2Z"/>
     <!-- the near half of a hook (tip side, and what shows in the clip's eye): drawn over the clip, so the hook reads as passing through its eye -->
     <clipPath id="hooknear"><rect x="60" y="0" width="68.5" height="120"/><circle cx="130" cy="74" r="9.250"/></clipPath>
@@ -332,6 +335,7 @@ h1 .easier{color:var(--accent);text-shadow:.012em .012em 0 var(--ink),.024em .02
     <rect id="p-invoice" x="13.500" y="5" width="21" height="24" rx="3.500"/>
     <path id="p-sun" d="M17.5 17.0a6.500 6.500 0 1 0 13 0a6.500 6.500 0 1 0-13 0zM33.20 18.70L37.00 18.70L37.00 15.30L33.20 15.30ZM29.30 24.71L31.99 27.39L34.39 24.99L31.71 22.30ZM22.30 26.20L22.30 30.00L25.70 30.00L25.70 26.20ZM16.29 22.30L13.61 24.99L16.01 27.39L18.70 24.71ZM14.80 15.30L11.00 15.30L11.00 18.70L14.80 18.70ZM18.70 9.29L16.01 6.61L13.61 9.01L16.29 11.70ZM25.70 7.80L25.70 4.00L22.30 4.00L22.30 7.80ZM31.71 11.70L34.39 9.01L31.99 6.61L29.30 9.29Z"/>
     <path id="p-gear" fill-rule="evenodd" d="M21.76 7.67L22.17 4.13L25.83 4.13L26.24 7.67L29.02 8.81L31.81 6.60L34.40 9.19L32.19 11.98L33.33 14.76L36.87 15.17L36.87 18.83L33.33 19.24L32.19 22.02L34.40 24.81L31.81 27.40L29.02 25.19L26.24 26.33L25.83 29.87L22.17 29.87L21.76 26.33L18.98 25.19L16.19 27.40L13.60 24.81L15.81 22.02L14.67 19.24L11.13 18.83L11.13 15.17L14.67 14.76L15.81 11.98L13.60 9.19L16.19 6.60L18.98 8.81ZM20.0 17.0a4 4 0 1 0 8 0a4 4 0 1 0-8 0z"/>
+    <path id="p-digest" fill-rule="evenodd" d="M13.5 5H31a2.500 2.500 0 0 1 2.500 2.500V10H35.500a2 2 0 0 1 2 2V26a3.500 3.500 0 0 1-3.500 3.500H14a3.500 3.500 0 0 1-3.500-3.500V8a3 3 0 0 1 3-3ZM14.500 9.500V13.500H29.500V9.500ZM14.500 17V25H21V17ZM24 17V20H29.500V17ZM24 22V25H29.500V22Z"/>
   </defs>
 </svg>
 
@@ -367,7 +371,7 @@ h1 .easier{color:var(--accent);text-shadow:.012em .012em 0 var(--ink),.024em .02
         <svg class="tkhook" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#hook" fill="#D2561B"/></svg>
         <i class="tkstring"></i><i class="eyelet"></i>
         <p class="kicker">The tools</p>
-        <h2 id="tools-h">Three so far. Each one starts with a person and a&nbsp;chore.</h2>
+        <h2 id="tools-h">Four so far. Each one starts with a person and a&nbsp;chore.</h2>
       </div>
       <ul class="tools">
         <li class="tool" style="--r:-.5deg">
@@ -535,6 +539,73 @@ h1 .easier{color:var(--accent);text-shadow:.012em .012em 0 var(--ink),.024em .02
             </div>
           </div>
         </li>
+        <li class="tool" style="--r:.5deg">
+          <div class="obj" aria-hidden="true">
+            <svg class="thing" viewBox="0 0 260 360" focusable="false"><g transform="translate(0 62)"><!-- twine loop, far strand: comes down behind the hook and behind the paper -->
+              <path d="M131.400 3L131.600 50" fill="none" stroke="#6b5836" stroke-width="4.600" stroke-linecap="round"/>
+              <path d="M131.400 3L131.600 50" fill="none" stroke="#E9D9B0" stroke-width="2.600" stroke-linecap="round" stroke-dasharray="4 3"/>
+              <!-- the pages behind the front page -->
+              <rect x="51" y="47" width="172" height="246" rx="2" fill="#8F7B4E"/>
+              <rect x="49" y="45" width="172" height="246" rx="2" fill="#B9A377"/>
+              <rect x="47" y="43" width="172" height="246" rx="2" fill="#D8C79C"/>
+              <rect x="45.500" y="41.500" width="172" height="246" rx="2" fill="#F3E8CB"/>
+              <path d="M190 262h20M190 271h14" stroke="#0F1F3D" stroke-width="3.200" stroke-linecap="round" opacity=".3"/>
+              <path d="M217.500 258.500L187.500 287.500H217.500Z" fill="#5A3C14" opacity=".3"/>
+              <!-- front page, with its lower corner turned up -->
+              <path d="M44 40H216V256L186 286H44Z" fill="url(#gPaper)"/>
+              <path d="M56 72h62M144 72h60" stroke="#0F1F3D" stroke-width="1.400"/>
+              <text x="130" y="91" text-anchor="middle" textLength="112" lengthAdjust="spacingAndGlyphs" font-family="'Big Shoulders Display', sans-serif" font-weight="800" font-size="15" letter-spacing="5" fill="#C8501B">DAYLIGHT</text>
+              <text x="130" y="134" text-anchor="middle" textLength="146" lengthAdjust="spacingAndGlyphs" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="48" letter-spacing="3" fill="#0F1F3D">DIGEST</text>
+              <rect x="56" y="140" width="148" height="3.200" fill="#0F1F3D"/>
+              <rect x="56" y="146" width="148" height="1.200" fill="#0F1F3D"/>
+              <!-- the picture: Daylight's sun -->
+              <rect x="56" y="155" width="70" height="52" fill="#16284D"/>
+              <rect x="56" y="155" width="70" height="52" fill="url(#gNews)" opacity=".5"/>
+              <use href="#p-sun" transform="translate(54.200 156.350) scale(1.450)" fill="#F79A58"/>
+              <circle cx="88.500" cy="178.500" r="4" fill="#FFD9B0" opacity=".8"/>
+              <g stroke="#0F1F3D" stroke-linecap="round">
+                <path d="M136 159h66M136 170h44" stroke-width="5"/>
+                <g stroke-width="3.200" opacity=".42">
+                  <path d="M136 183h68M136 192h40M136 201h60"/>
+                  <path d="M57 232h42M57 241h30M57 250h42M57 259h36M57 268h42M57 277h24"/>
+                  <path d="M109 232h42M109 241h42M109 250h20M109 259h42M109 268h34M109 277h42"/>
+                  <path d="M161 232h42M161 241h22M161 250h42M161 259h30M161 268h16"/>
+                </g>
+              </g>
+              <!-- every fact linked: the source links -->
+              <g stroke="#C8501B" stroke-width="3.200" stroke-linecap="round">
+                <path d="M182 192h22M93 241h6M135 250h16M189 241h14"/>
+              </g>
+              <!-- fold, spine and edge light -->
+              <rect x="44" y="211" width="172" height="13" fill="url(#gCrease)"/>
+              <path d="M44 40H216V256L186 286H44Z" fill="url(#gNews)"/>
+              <path d="M45 285V41H215" fill="none" stroke="#fff" stroke-width="1.600" stroke-opacity=".7"/>
+              <!-- the turned-up corner -->
+              <path d="M216 256L186 286L183 259Z" fill="#5A3C14" opacity=".22"/>
+              <path d="M216 256L186 286Q184 268 188 258Q200 254 216 256Z" fill="url(#gFlap)" stroke="#B9A377" stroke-width="1"/>
+              <!-- eyelet -->
+              <circle cx="131.300" cy="59" r="10" fill="#5A3C14" opacity=".3"/>
+              <circle cx="130.500" cy="58" r="9.500" fill="url(#gSteel)" stroke="#3D4756" stroke-width="1.200"/>
+              <circle cx="130.500" cy="58" r="5.800" fill="#0B1730" stroke="#3D4756" stroke-width="1"/>
+            </g></svg>
+            <svg class="onhook" viewBox="0 0 260 360" focusable="false"><use href="#hook" transform="translate(96.250 0) scale(1.250)" fill="#D2561B"/></svg>
+            <svg class="thing over" viewBox="0 0 260 360" focusable="false"><g transform="translate(0 62)"><!-- twine loop, near strand: over the hook, down the face of the paper and through its eyelet -->
+              <path d="M131.400 3a2.800 2.800 0 0 0-5.600 0L130.200 58" fill="none" stroke="#6b5836" stroke-width="4.600" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M131.400 3a2.800 2.800 0 0 0-5.600 0L130.200 58" fill="none" stroke="#E9D9B0" stroke-width="2.600" stroke-linecap="round" stroke-dasharray="4 3"/>
+            </g></svg>
+          </div>
+          <div class="tagwrap">
+            <i class="string"></i>
+            <div class="tag">
+              <i class="eyelet"></i>
+              <p class="tagno"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-digest" fill="#0F1F3D"/></svg><span>For anyone who wants to follow their local government</span></p>
+              <h3><span class="easier">A little easier</span> to keep up with your town hall.</h3>
+              <p class="name">Daylight Digest</p>
+              <p class="what">Enter your address and get a short digest of your city, county and school board meetings, taken only from the official record, with every fact linked to its source. A website first, then an iPhone app.</p>
+              <div class="tagfoot"><span class="stamp">In development</span></div>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -646,7 +717,8 @@ h1 .easier{color:var(--accent);text-shadow:.012em .012em 0 var(--ink),.024em .02
         <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-invoice" fill="#0F1F3D"/></svg>
         <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-sun" fill="#0F1F3D"/></svg>
         <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-gear" fill="#0F1F3D"/></svg>
-        <small>One hook, three tools</small>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hook" fill="#D2561B"/><use href="#p-digest" fill="#0F1F3D"/></svg>
+        <small>One hook, four tools</small>
       </li>
     </ul>
   </div>
