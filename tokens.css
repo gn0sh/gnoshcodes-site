@@ -1,8 +1,8 @@
 /* gnoshcodes house tokens: the one copy, loaded first by every page on gnoshcodes.com.
    Synced from the gnoshcodes design system at commit e80c4d3 (house layer and foundations).
    Values here must match the design system; change them there first.
-   Left out until a page needs them: the four status colors and the type classes (.label, .small, .kicker
-   and others), whose names clash with this site's own classes.
+   Left out until a page needs them: the other three status colors (success is in, for /makers/) and the type
+   classes (.label, .small, .kicker and others), whose names clash with this site's own classes.
 
    How page CSS reads these:
    - Role names (--ground, --surface, --ink, --accent-ink, --action, --link-*, --focus) on the cream pages.
@@ -42,6 +42,8 @@
   --link-visited: #5c3f7a;
   --focus: var(--orange-deep);
   --focus-halo: #ffffff;
+  --success: #006b5a;
+  --success-fill: #d5e8dc;
   --tag: var(--cream);
   --tag-edge: var(--paper-edge);
   --on-tag: var(--navy-800);
@@ -78,6 +80,8 @@
   --link-visited: #c9b0ec;
   --focus: var(--orange-bright);
   --focus-halo: var(--navy-950);
+  --success: #6fd3b4;
+  --success-fill: #0f3b3a;
   --tag: var(--cream);
   --tag-edge: var(--paper-edge);
   --on-tag: var(--navy-800);
